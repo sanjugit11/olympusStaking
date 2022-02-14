@@ -1,0 +1,720 @@
+{
+	"compiler": {
+		"version": "0.7.5+commit.eb77ed08"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_oldOHM",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_oldsOHM",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_oldTreasury",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_oldStaking",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_oldwsOHM",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_sushi",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_uni",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_timelock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_authority",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract IOlympusAuthority",
+						"name": "authority",
+						"type": "address"
+					}
+				],
+				"name": "AuthorityUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Defunded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Funded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "staking",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "treasury",
+						"type": "address"
+					}
+				],
+				"name": "Migrated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "end",
+						"type": "uint256"
+					}
+				],
+				"name": "TimelockStarted",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "authority",
+				"outputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum OlympusTokenMigrator.TYPE",
+						"name": "_to",
+						"type": "uint8"
+					}
+				],
+				"name": "bridgeBack",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					}
+				],
+				"name": "defund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "gOHM",
+				"outputs": [
+					{
+						"internalType": "contract IgOHM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "halt",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum OlympusTokenMigrator.TYPE",
+						"name": "_from",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum OlympusTokenMigrator.TYPE",
+						"name": "_to",
+						"type": "uint8"
+					}
+				],
+				"name": "migrate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum OlympusTokenMigrator.TYPE",
+						"name": "_to",
+						"type": "uint8"
+					}
+				],
+				"name": "migrateAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newTreasury",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_newStaking",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_newOHM",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_newsOHM",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_reserve",
+						"type": "address"
+					}
+				],
+				"name": "migrateContracts",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "pair",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "sushi",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_minA",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_minB",
+						"type": "uint256"
+					}
+				],
+				"name": "migrateLP",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "migrateToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "newOHM",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "newStaking",
+				"outputs": [
+					{
+						"internalType": "contract IStaking",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "newTreasury",
+				"outputs": [
+					{
+						"internalType": "contract ITreasury",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ohmMigrated",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oldOHM",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oldStaking",
+				"outputs": [
+					{
+						"internalType": "contract IStakingV1",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oldSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oldTreasury",
+				"outputs": [
+					{
+						"internalType": "contract ITreasuryV1",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oldsOHM",
+				"outputs": [
+					{
+						"internalType": "contract IsOHM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oldwsOHM",
+				"outputs": [
+					{
+						"internalType": "contract IwsOHM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "_newAuthority",
+						"type": "address"
+					}
+				],
+				"name": "setAuthority",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_gOHM",
+						"type": "address"
+					}
+				],
+				"name": "setgOHM",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shutdown",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startTimelock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sushiRouter",
+				"outputs": [
+					{
+						"internalType": "contract IUniswapV2Router",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timelockEnd",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timelockLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "uniRouter",
+				"outputs": [
+					{
+						"internalType": "contract IUniswapV2Router",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					}
+				],
+				"name": "withdrawToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"migrateLP(address,bool,address,uint256,uint256)": {
+					"notice": "Migrate LP and pair with new OHM"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/migration/OlympusTokenMigrator.sol": "OlympusTokenMigrator"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IERC20.sol": {
+			"keccak256": "0xc379ec1f3a741cc00948003e24687516b8fdb71914cd3b90b10589d74fe1d49f",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://fdb71c90b122d9421c799a6b89d8f2c1aba66be1ce2b51d57ba8effb89d73a9c",
+				"dweb:/ipfs/QmboLxPYNXFfF7Bc3vprbp9a7UFqC5EaU2ARK7oFZYCBYB"
+			]
+		},
+		"contracts/interfaces/IOlympusAuthority.sol": {
+			"keccak256": "0x93c02d36be0a6876183f67e72acf64e0206d0e1e48fb3b9c9ed5614200d9c934",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb4dba92f274a0d22c1b2d4fa2a0aeafd00e6d8502e0731645097dafa6756468",
+				"dweb:/ipfs/QmR8avzt2GPK2Cxx96eFNuu6LmL7LiWxDkEBwEwj2qN7Kj"
+			]
+		},
+		"contracts/interfaces/IOwnable.sol": {
+			"keccak256": "0x29d92f94f4517d948d3a314e89008ae96e189cc21d410d477ddfe3766e5d665a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://939c2fa81ad0f94c4c76754676f1db4340f1f1cba50cd20dbbb5a71be8945f65",
+				"dweb:/ipfs/QmQzo16egRWr1BGdPh9AML4G2q1qG57vK4ChMcddDbm1r5"
+			]
+		},
+		"contracts/interfaces/IStaking.sol": {
+			"keccak256": "0xc5481248b924479a867d252882a1be9573e4aefe3c7816045e1c0c25daacca70",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://5a0bf214509dcb8f0f9566918c2038e50e5bd9286a19a914f1ed6fbf2de22b1d",
+				"dweb:/ipfs/QmTacgzN9NcR1oHwyWdFV8Kazfzoj8dCaNLVVftt35KnNU"
+			]
+		},
+		"contracts/interfaces/IStakingV1.sol": {
+			"keccak256": "0x5b020cff8561f6f3a78db4c107412c43954d457c96483c7ca89a6c2ea82ee15b",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://f5d8732aa5f7d194a037042afe7b123b84b7fee0e4c8e87ff630c8e778199623",
+				"dweb:/ipfs/Qmcipb9tXnqTCmTVbsF4MXdM6EaAbw7uzypQoqsTCPRJ8S"
+			]
+		},
+		"contracts/interfaces/ITreasury.sol": {
+			"keccak256": "0x3a7e171916da6bf9b28904c2adc6ede32896a841e7f7ede0ad60da6804659c56",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://591b853c1ba8b666992cabc4279b1d9bfc32e79c618b14e42026bc4ab5a8b9f3",
+				"dweb:/ipfs/QmNMn45JaWKZvMg6Fk8JTuCTVJRcAozFmEAGmLHKr7cZ1b"
+			]
+		},
+		"contracts/interfaces/ITreasuryV1.sol": {
+			"keccak256": "0xa11470f36c1a411585fbfe0fa72e65f56c409ff2de35029b12fc1cb90f36c519",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d10648fa606e8bf8d529616057f2c6a5795f21675638c2a787dd24f8ae695203",
+				"dweb:/ipfs/QmY2fmPYRer3xxxXYTqyCcyrRE2kfdpURWrybQygWmHFmJ"
+			]
+		},
+		"contracts/interfaces/IUniswapV2Router.sol": {
+			"keccak256": "0x715efb1f7525e121300f58d0529130c95fd59adf6052f2ca0da47501a9497936",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://5051ae69b60d7b6d9b717f30efc5adf842a679e53f5ec833f20fd249a39cfa9d",
+				"dweb:/ipfs/Qmf2RwJD1zb3mKUEe2DzhQVSkuSvuUB3kid6WHPsxwKUAw"
+			]
+		},
+		"contracts/interfaces/IgOHM.sol": {
+			"keccak256": "0x0e61aa62110e1fa27c32948b2fea2aa7a4805e1c2bdffc489bb39bf7bfb121b1",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://a3f2cbe8d99d39c2427e65f9e4e9bd4d7f01d8d12328023c0a0edc8aae4de061",
+				"dweb:/ipfs/QmY73ZJYa74mmYPxH91x5DqPDKbMYTnsX4B4avAYvRS8Ht"
+			]
+		},
+		"contracts/interfaces/IsOHM.sol": {
+			"keccak256": "0xa8e9f615088cf1c01284eadef0c1f673f64ca212ac94c00a90cc566981f9065c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://57e8c2b44afb72a72145f8d0bc76ead08032cf9afc987a2f15cd714a9a019adb",
+				"dweb:/ipfs/Qmb9AzboTar2MksmrVxReqo9MX79iAw4meeP1Cr2Gq5UQk"
+			]
+		},
+		"contracts/interfaces/IwsOHM.sol": {
+			"keccak256": "0x5997ea851440448b1cfc072f54f1bc277b18d92d748c5e3055dbcac58ddc6237",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://3308f74eeb705f44345e1cb9bdcf16ba05133d7a9ac2ba37df5b5566ad123ef4",
+				"dweb:/ipfs/QmRvTfj2bhM6hitRBp5a969E2JhMvwYyn3ms3KY3S8YBZo"
+			]
+		},
+		"contracts/libraries/SafeERC20.sol": {
+			"keccak256": "0x778abe92595c692abcf3bec8b72f4491746626d1a057c76b97c8d1a7d759f7b0",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://466b8a5fae532ca4fc34bff92b0f23f3abe6689f5dbbb1aeb6ef2351c00e1f54",
+				"dweb:/ipfs/QmZr7LTTXLdDzfoAJtbKFfCDLmq4hX9r2dycDiEMdzk2Wk"
+			]
+		},
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0xf2edfc9cacbecb4aa48c6e5752a2d87939b450b64c18e77ad1098430d0772005",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://e6a53bcf01804ba55befe28b960f5fb83d677b408a6923181987259cbd0257d9",
+				"dweb:/ipfs/QmQFd3E8cQGcHLN8uaX9cQcVsrgEikNEHCGee1iXJ1BXfd"
+			]
+		},
+		"contracts/migration/OlympusTokenMigrator.sol": {
+			"keccak256": "0xf5813111fee59321dfbfee6c1cce81dc0646b1c3c7a3846c5e4a704dc6c3464e",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://571ca2a7e25cd549b05187d4aa3ec6a5d6aee4f075dc89796737d15692856221",
+				"dweb:/ipfs/QmXXeeJ7mH2Ue79ytz738yRMw9BbvUxaP2UpbZjbiPbBtv"
+			]
+		},
+		"contracts/types/OlympusAccessControlled.sol": {
+			"keccak256": "0x23457dbe4e9afae578313d2c73ea3880ca58c16d461fdc6ae83eb98e03ea43f7",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://b6ae33e2325cc7b05041be5e3ffdf5979daa3aaf8aea60aee20341f1eb9831e3",
+				"dweb:/ipfs/QmaiQ9dWmsXtz68c3rWJXRnkCzeRngu6M2fzjSCiQpovUr"
+			]
+		}
+	},
+	"version": 1
+}

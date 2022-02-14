@@ -1,0 +1,1273 @@
+{
+	"compiler": {
+		"version": "0.8.11+commit.d7f03943"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "_authority",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IERC20",
+						"name": "_ohm",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IgOHM",
+						"name": "_gohm",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IStaking",
+						"name": "_staking",
+						"type": "address"
+					},
+					{
+						"internalType": "contract ITreasury",
+						"name": "_treasury",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract IOlympusAuthority",
+						"name": "authority",
+						"type": "address"
+					}
+				],
+				"name": "AuthorityUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "Bond",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "CloseMarket",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "baseToken",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "quoteToken",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "initialPrice",
+						"type": "uint256"
+					}
+				],
+				"name": "CreateMarket",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "oldControlVariable",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "newControlVariable",
+						"type": "uint64"
+					}
+				],
+				"name": "Tuned",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "adjustments",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "change",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint48",
+						"name": "lastAdjustment",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "timeToAdjusted",
+						"type": "uint48"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "authority",
+				"outputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "close",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "_quoteToken",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[3]",
+						"name": "_market",
+						"type": "uint256[3]"
+					},
+					{
+						"internalType": "bool[2]",
+						"name": "_booleans",
+						"type": "bool[2]"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "_terms",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint32[2]",
+						"name": "_intervals",
+						"type": "uint32[2]"
+					}
+				],
+				"name": "create",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "currentControlVariable",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "currentDebt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "daoReward",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "debtDecay",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "debtRatio",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_maxPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_referral",
+						"type": "address"
+					}
+				],
+				"name": "deposit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "payout_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expiry_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "indexesFor",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "isLive",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "liveMarkets",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "liveMarketsFor",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "marketPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "markets",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "capacity",
+						"type": "uint256"
+					},
+					{
+						"internalType": "contract IERC20",
+						"name": "quoteToken",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "capacityInQuote",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint64",
+						"name": "totalDebt",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "maxPayout",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "sold",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint256",
+						"name": "purchased",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "marketsForQuote",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "metadata",
+				"outputs": [
+					{
+						"internalType": "uint48",
+						"name": "lastTune",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "lastDecay",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "length",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "depositInterval",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "tuneInterval",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint8",
+						"name": "quoteDecimals",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "notes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "payout",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint48",
+						"name": "created",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "matured",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "redeemed",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "marketID",
+						"type": "uint48"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "payoutFor",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "pendingFor",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "payout_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "matured_",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "pullNote",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "newIndex_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "pushNote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "_indexes",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bool",
+						"name": "_sendgOHM",
+						"type": "bool"
+					}
+				],
+				"name": "redeem",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "payout_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_sendgOHM",
+						"type": "bool"
+					}
+				],
+				"name": "redeemAll",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "refReward",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "rewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "_newAuthority",
+						"type": "address"
+					}
+				],
+				"name": "setAuthority",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_toFrontEnd",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_toDAO",
+						"type": "uint256"
+					}
+				],
+				"name": "setRewards",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "terms",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "fixedTerm",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint64",
+						"name": "controlVariable",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint48",
+						"name": "vesting",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "conclusion",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint64",
+						"name": "maxDebt",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "updateTreasury",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					}
+				],
+				"name": "whitelist",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "whitelisted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Zeus, Indigo Review by: JeffX",
+			"kind": "dev",
+			"methods": {
+				"close(uint256)": {
+					"params": {
+						"_id": "ID of market to close"
+					}
+				},
+				"create(address,uint256[3],bool[2],uint256[2],uint32[2])": {
+					"details": "current price should be in 9 decimals.",
+					"params": {
+						"_booleans": "[capacity in quote, fixed term]",
+						"_intervals": "[deposit interval (seconds), tune interval (seconds)]",
+						"_market": "[capacity (in OHM or quote), initial price / OHM (9 decimals), debt buffer (3 decimals)]",
+						"_quoteToken": "token used to deposit",
+						"_terms": "[vesting length (if fixed term) or vested timestamp, conclusion timestamp]"
+					},
+					"returns": {
+						"id_": "        ID of new bond market"
+					}
+				},
+				"currentControlVariable(uint256)": {
+					"details": "accounts for control variable adjustment",
+					"params": {
+						"_id": "ID of market"
+					},
+					"returns": {
+						"_0": "control variable for market in OHM decimals"
+					}
+				},
+				"currentDebt(uint256)": {
+					"details": "accounts for debt decay since last deposit",
+					"params": {
+						"_id": "ID of market"
+					},
+					"returns": {
+						"_0": "current debt for market in OHM decimals"
+					}
+				},
+				"debtDecay(uint256)": {
+					"params": {
+						"_id": "ID of market"
+					},
+					"returns": {
+						"_0": "amount of debt to decay"
+					}
+				},
+				"debtRatio(uint256)": {
+					"details": "uses current debt, which accounts for debt decay since last deposit (vs _debtRatio())",
+					"params": {
+						"_id": "ID of market"
+					},
+					"returns": {
+						"_0": "debt ratio for market in quote decimals"
+					}
+				},
+				"deposit(uint256,uint256,uint256,address,address)": {
+					"params": {
+						"_amount": "the amount of quote token to spend",
+						"_id": "the ID of the market",
+						"_maxPrice": "the maximum price at which to buy",
+						"_referral": "the front end operator address",
+						"_user": "the recipient of the payout"
+					},
+					"returns": {
+						"expiry_": "    the timestamp at which payout is redeemable",
+						"index_": "     the user index of the Note (used to redeem or query information)",
+						"payout_": "    the amount of gOHM due"
+					}
+				},
+				"indexesFor(address)": {
+					"params": {
+						"_user": "the user to query notes for"
+					},
+					"returns": {
+						"_0": "the pending notes for the user"
+					}
+				},
+				"isLive(uint256)": {
+					"params": {
+						"_id": "ID of market"
+					}
+				},
+				"liveMarketsFor(address)": {
+					"params": {
+						"_token": "quote token to check for"
+					}
+				},
+				"marketPrice(uint256)": {
+					"details": "accounts for debt and control variable decay since last deposit (vs _marketPrice())",
+					"params": {
+						"_id": "ID of market"
+					},
+					"returns": {
+						"_0": "price for market in OHM decimals price is derived from the equation p = cv * dr where p = price cv = control variable dr = debt ratio dr = d / s where d = debt s = supply of token at market creation d -= ( d * (dt / l) ) where dt = change in time l = length of program"
+					}
+				},
+				"payoutFor(uint256,uint256)": {
+					"details": "accounts for debt and control variable decay so it is up to date1e18 = ohm decimals (9) + market price decimals (9)",
+					"params": {
+						"_amount": "amount of quote tokens to spend",
+						"_id": "ID of market"
+					},
+					"returns": {
+						"_0": "amount of OHM to be paid in OHM decimals"
+					}
+				},
+				"pendingFor(address,uint256)": {
+					"params": {
+						"_index": "the index of the note in the user's array",
+						"_user": "the user that the note belongs to"
+					},
+					"returns": {
+						"matured_": "   if the payout can be redeemed",
+						"payout_": "    the payout due, in gOHM"
+					}
+				},
+				"pullNote(address,uint256)": {
+					"params": {
+						"_from": "the address that approved the note transfer",
+						"_index": "the index of the note to transfer (in the sender's array)"
+					}
+				},
+				"pushNote(address,uint256)": {
+					"params": {
+						"_index": "index of note to approve transfer for",
+						"_to": "address to approve note transfer for"
+					}
+				},
+				"redeem(address,uint256[],bool)": {
+					"params": {
+						"_indexes": "the note indexes to redeem",
+						"_sendgOHM": "send payout as gOHM or sOHM",
+						"_user": "the user to redeem for"
+					},
+					"returns": {
+						"payout_": "    sum of payout sent, in gOHM"
+					}
+				},
+				"redeemAll(address,bool)": {
+					"details": "if possible, query indexesFor() off-chain and input in redeem() to save gas",
+					"params": {
+						"_sendgOHM": "send payout as gOHM or sOHM",
+						"_user": "user to redeem all notes for"
+					},
+					"returns": {
+						"_0": "sum of payout sent, in gOHM"
+					}
+				}
+			},
+			"title": "Olympus Bond Depository V2",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"close(uint256)": {
+					"notice": "disable existing market"
+				},
+				"create(address,uint256[3],bool[2],uint256[2],uint32[2])": {
+					"notice": "creates a new market type"
+				},
+				"currentControlVariable(uint256)": {
+					"notice": "up to date control variable"
+				},
+				"currentDebt(uint256)": {
+					"notice": "calculate debt factoring in decay"
+				},
+				"debtDecay(uint256)": {
+					"notice": "amount of debt to decay from total debt for market ID"
+				},
+				"debtRatio(uint256)": {
+					"notice": "calculate current ratio of debt to supply"
+				},
+				"deposit(uint256,uint256,uint256,address,address)": {
+					"notice": "deposit quote tokens in exchange for a bond from a specified market"
+				},
+				"indexesFor(address)": {
+					"notice": "all pending notes for user"
+				},
+				"isLive(uint256)": {
+					"notice": "is a given market accepting deposits"
+				},
+				"liveMarkets()": {
+					"notice": "returns an array of all active market IDs"
+				},
+				"liveMarketsFor(address)": {
+					"notice": "returns an array of all active market IDs for a given quote token"
+				},
+				"marketPrice(uint256)": {
+					"notice": "calculate current market price of quote token in base token"
+				},
+				"payoutFor(uint256,uint256)": {
+					"notice": "payout due for amount of quote tokens"
+				},
+				"pendingFor(address,uint256)": {
+					"notice": "calculate amount available for claim for a single note"
+				},
+				"pullNote(address,uint256)": {
+					"notice": "transfer a note that has been approved by an address"
+				},
+				"pushNote(address,uint256)": {
+					"notice": "approve an address to transfer a note"
+				},
+				"redeem(address,uint256[],bool)": {
+					"notice": "redeem notes for user"
+				},
+				"redeemAll(address,bool)": {
+					"notice": "redeem all redeemable markets for user"
+				},
+				"setRewards(uint256,uint256)": {
+					"notice": "set rewards for front end operators and DAO"
+				},
+				"whitelist(address)": {
+					"notice": "add or remove addresses from the reward whitelist"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/BondDepository.sol": "OlympusBondDepositoryV2"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BondDepository.sol": {
+			"keccak256": "0x015ed46f30aad390f664bf61cebea551260233128f13a7c0c06c8d3aff40d179",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://7959702488ceca01e962e79ad91ea0ce851102ec4525336973ce64812c7f73fb",
+				"dweb:/ipfs/QmfKUUoeQ54eVgK36uctzREgpVmf4m3Fw3wcVra9KxiDE9"
+			]
+		},
+		"contracts/interfaces/IBondDepository.sol": {
+			"keccak256": "0x0ac2362eaba961bb56ce865a7c085b05efd75ed58c687b5a78a7bdeef00aedf7",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d75c4c1bd49060507d8691a048599da3e23cb8b4ff24f32a4fdebf63f2bf6773",
+				"dweb:/ipfs/QmPE1hxeSZrMVvBDLKpDeqnHRNBybCajP4yTogfQHCYT2w"
+			]
+		},
+		"contracts/interfaces/IERC20.sol": {
+			"keccak256": "0xc379ec1f3a741cc00948003e24687516b8fdb71914cd3b90b10589d74fe1d49f",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://fdb71c90b122d9421c799a6b89d8f2c1aba66be1ce2b51d57ba8effb89d73a9c",
+				"dweb:/ipfs/QmboLxPYNXFfF7Bc3vprbp9a7UFqC5EaU2ARK7oFZYCBYB"
+			]
+		},
+		"contracts/interfaces/IERC20Metadata.sol": {
+			"keccak256": "0x9690aab5d4ff226e2618763ca0eb46853234aba1582ba0392c2cdcb2b3c7274c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://8b60dbe1980b77c76355fb44acc0365a3bf783d3a9223eee04a96da9359038ab",
+				"dweb:/ipfs/QmPMw8EZhb5VAJhNjVeTpVQK2nu26DtMtGBZdfd1oFKNML"
+			]
+		},
+		"contracts/interfaces/INoteKeeper.sol": {
+			"keccak256": "0xd67f49fd7a8dd1d6619311f9177ce866e7f200b717adef705beedfd29b445b11",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://35bd53abaf09710c27ce098d9de1d4fde455fcbe6aeb9521b1a327df1201bd20",
+				"dweb:/ipfs/QmUeBiwrgot56vGA82aSnywB4UFCEqQEQduGdE3BLcq8jm"
+			]
+		},
+		"contracts/interfaces/IOlympusAuthority.sol": {
+			"keccak256": "0x93c02d36be0a6876183f67e72acf64e0206d0e1e48fb3b9c9ed5614200d9c934",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb4dba92f274a0d22c1b2d4fa2a0aeafd00e6d8502e0731645097dafa6756468",
+				"dweb:/ipfs/QmR8avzt2GPK2Cxx96eFNuu6LmL7LiWxDkEBwEwj2qN7Kj"
+			]
+		},
+		"contracts/interfaces/IStaking.sol": {
+			"keccak256": "0xc5481248b924479a867d252882a1be9573e4aefe3c7816045e1c0c25daacca70",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://5a0bf214509dcb8f0f9566918c2038e50e5bd9286a19a914f1ed6fbf2de22b1d",
+				"dweb:/ipfs/QmTacgzN9NcR1oHwyWdFV8Kazfzoj8dCaNLVVftt35KnNU"
+			]
+		},
+		"contracts/interfaces/ITreasury.sol": {
+			"keccak256": "0x3a7e171916da6bf9b28904c2adc6ede32896a841e7f7ede0ad60da6804659c56",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://591b853c1ba8b666992cabc4279b1d9bfc32e79c618b14e42026bc4ab5a8b9f3",
+				"dweb:/ipfs/QmNMn45JaWKZvMg6Fk8JTuCTVJRcAozFmEAGmLHKr7cZ1b"
+			]
+		},
+		"contracts/interfaces/IgOHM.sol": {
+			"keccak256": "0x0e61aa62110e1fa27c32948b2fea2aa7a4805e1c2bdffc489bb39bf7bfb121b1",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://a3f2cbe8d99d39c2427e65f9e4e9bd4d7f01d8d12328023c0a0edc8aae4de061",
+				"dweb:/ipfs/QmY73ZJYa74mmYPxH91x5DqPDKbMYTnsX4B4avAYvRS8Ht"
+			]
+		},
+		"contracts/libraries/SafeERC20.sol": {
+			"keccak256": "0x778abe92595c692abcf3bec8b72f4491746626d1a057c76b97c8d1a7d759f7b0",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://466b8a5fae532ca4fc34bff92b0f23f3abe6689f5dbbb1aeb6ef2351c00e1f54",
+				"dweb:/ipfs/QmZr7LTTXLdDzfoAJtbKFfCDLmq4hX9r2dycDiEMdzk2Wk"
+			]
+		},
+		"contracts/types/FrontEndRewarder.sol": {
+			"keccak256": "0x89e0f0f5e779cf913a2d921c5cb67c6eb2083f3d122b5ee3556045189265635d",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://e06797248788944b3e48e187202edf9cd25293f55006f407443580a1f8a84db6",
+				"dweb:/ipfs/QmbTRXFqtHmmVyYtD8xEmx1ZHuqjLYGDftRKyTWSLHEJAw"
+			]
+		},
+		"contracts/types/NoteKeeper.sol": {
+			"keccak256": "0xc009ccce6b75fe57904adf0f785ac90436695820dc77a7205291fbfa9d250004",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://6f8bd850676db2a5007674ccee549b00e32507c92c9d094fc37aea8ccd98af52",
+				"dweb:/ipfs/QmT71r7AcCpxhmeEHgGktVdWFwLr6stpAnNbpMy5gFkGeX"
+			]
+		},
+		"contracts/types/OlympusAccessControlled.sol": {
+			"keccak256": "0x23457dbe4e9afae578313d2c73ea3880ca58c16d461fdc6ae83eb98e03ea43f7",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://b6ae33e2325cc7b05041be5e3ffdf5979daa3aaf8aea60aee20341f1eb9831e3",
+				"dweb:/ipfs/QmaiQ9dWmsXtz68c3rWJXRnkCzeRngu6M2fzjSCiQpovUr"
+			]
+		}
+	},
+	"version": 1
+}

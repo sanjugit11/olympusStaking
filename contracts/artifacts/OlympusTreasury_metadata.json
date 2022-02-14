@@ -1,0 +1,1162 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_ohm",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_timelock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_authority",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract IOlympusAuthority",
+						"name": "authority",
+						"type": "address"
+					}
+				],
+				"name": "AuthorityUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "debtor",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "CreateDebt",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Managed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Minted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "enum OlympusTreasury.STATUS",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "queued",
+						"type": "address"
+					}
+				],
+				"name": "PermissionQueued",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "enum OlympusTreasury.STATUS",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "result",
+						"type": "bool"
+					}
+				],
+				"name": "Permissioned",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "debtor",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "RepayDebt",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "totalReserves",
+						"type": "uint256"
+					}
+				],
+				"name": "ReservesAudited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdrawal",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "OHM",
+				"outputs": [
+					{
+						"internalType": "contract IOHM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "auditReserves",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "authority",
+				"outputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "baseSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "blocksNeededForQueue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "bondCalculator",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "debtLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_profit",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "send_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum OlympusTreasury.STATUS",
+						"name": "_status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "_toDisable",
+						"type": "address"
+					}
+				],
+				"name": "disable",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "disableTimelock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum OlympusTreasury.STATUS",
+						"name": "_status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_calculator",
+						"type": "address"
+					}
+				],
+				"name": "enable",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "excessReserves",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "execute",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "incurDebt",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "enum OlympusTreasury.STATUS",
+						"name": "_status",
+						"type": "uint8"
+					}
+				],
+				"name": "indexInRegistry",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "initialized",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "manage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "nullify",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ohmDebt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "onChainGovernanceTimelock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "permissionQueue",
+				"outputs": [
+					{
+						"internalType": "enum OlympusTreasury.STATUS",
+						"name": "managing",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "toPermit",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "calculator",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timelockEnd",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "nullify",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "executed",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum OlympusTreasury.STATUS",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "permissions",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum OlympusTreasury.STATUS",
+						"name": "_status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_calculator",
+						"type": "address"
+					}
+				],
+				"name": "queueTimelock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum OlympusTreasury.STATUS",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "registry",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "repayDebtWithOHM",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "repayDebtWithReserve",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sOHM",
+				"outputs": [
+					{
+						"internalType": "contract IsOHM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "_newAuthority",
+						"type": "address"
+					}
+				],
+				"name": "setAuthority",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_limit",
+						"type": "uint256"
+					}
+				],
+				"name": "setDebtLimit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timelockEnabled",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenValue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "value_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalDebt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalReserves",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"baseSupply()": {
+					"details": "use this any time you need to query supply",
+					"returns": {
+						"_0": "uint256"
+					}
+				},
+				"deposit(uint256,address,uint256)": {
+					"params": {
+						"_amount": "uint256",
+						"_profit": "uint256",
+						"_token": "address"
+					},
+					"returns": {
+						"send_": "uint256"
+					}
+				},
+				"disable(uint8,address)": {
+					"params": {
+						"_status": "STATUS",
+						"_toDisable": "address"
+					}
+				},
+				"enable(uint8,address,address)": {
+					"params": {
+						"_address": "address",
+						"_calculator": "address",
+						"_status": "STATUS"
+					}
+				},
+				"excessReserves()": {
+					"returns": {
+						"_0": "uint"
+					}
+				},
+				"execute(uint256)": {
+					"params": {
+						"_index": "uint256"
+					}
+				},
+				"incurDebt(uint256,address)": {
+					"params": {
+						"_amount": "uint256",
+						"_token": "address"
+					}
+				},
+				"indexInRegistry(address,uint8)": {
+					"returns": {
+						"_0": "(bool, uint256)"
+					}
+				},
+				"manage(address,uint256)": {
+					"params": {
+						"_amount": "uint256",
+						"_token": "address"
+					}
+				},
+				"mint(address,uint256)": {
+					"params": {
+						"_amount": "uint256",
+						"_recipient": "address"
+					}
+				},
+				"nullify(uint256)": {
+					"params": {
+						"_index": "uint256"
+					}
+				},
+				"queueTimelock(uint8,address,address)": {
+					"params": {
+						"_address": "address",
+						"_calculator": "address",
+						"_status": "STATUS"
+					}
+				},
+				"repayDebtWithOHM(uint256)": {
+					"params": {
+						"_amount": "uint256"
+					}
+				},
+				"repayDebtWithReserve(uint256,address)": {
+					"params": {
+						"_amount": "uint256",
+						"_token": "address"
+					}
+				},
+				"setDebtLimit(address,uint256)": {
+					"params": {
+						"_address": "address",
+						"_limit": "uint256"
+					}
+				},
+				"tokenValue(address,uint256)": {
+					"params": {
+						"_amount": "uint256",
+						"_token": "address"
+					},
+					"returns": {
+						"value_": "uint256"
+					}
+				},
+				"withdraw(uint256,address)": {
+					"params": {
+						"_amount": "uint256",
+						"_token": "address"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"auditReserves()": {
+					"notice": "takes inventory of all tracked assetsalways consolidate to recognized reserves before audit"
+				},
+				"baseSupply()": {
+					"notice": "returns supply metric that cannot be manipulated by debt"
+				},
+				"deposit(uint256,address,uint256)": {
+					"notice": "allow approved address to deposit an asset for OHM"
+				},
+				"disable(uint8,address)": {
+					"notice": "disable permission from address"
+				},
+				"disableTimelock()": {
+					"notice": "disables timelocked functions"
+				},
+				"enable(uint8,address,address)": {
+					"notice": "enable permission from queue"
+				},
+				"excessReserves()": {
+					"notice": "returns excess reserves not backing tokens"
+				},
+				"execute(uint256)": {
+					"notice": "enable queued permission"
+				},
+				"incurDebt(uint256,address)": {
+					"notice": "allow approved address to borrow reserves"
+				},
+				"indexInRegistry(address,uint8)": {
+					"notice": "check if registry contains address"
+				},
+				"initialize()": {
+					"notice": "enables timelocks after initilization"
+				},
+				"manage(address,uint256)": {
+					"notice": "allow approved address to withdraw assets"
+				},
+				"mint(address,uint256)": {
+					"notice": "mint new OHM using excess reserves"
+				},
+				"nullify(uint256)": {
+					"notice": "cancel timelocked action"
+				},
+				"queueTimelock(uint8,address,address)": {
+					"notice": "queue address to receive permission"
+				},
+				"repayDebtWithOHM(uint256)": {
+					"notice": "allow approved address to repay borrowed reserves with OHM"
+				},
+				"repayDebtWithReserve(uint256,address)": {
+					"notice": "allow approved address to repay borrowed reserves with reserves"
+				},
+				"setDebtLimit(address,uint256)": {
+					"notice": "set max debt for address"
+				},
+				"tokenValue(address,uint256)": {
+					"notice": "returns OHM valuation of asset"
+				},
+				"withdraw(uint256,address)": {
+					"notice": "allow approved address to burn OHM for reserves"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Treasury.sol": "OlympusTreasury"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Treasury.sol": {
+			"keccak256": "0x92cafe6be6ded36ae5c27872c798ada2a6d000060793ab1322f776138e0c4237",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://b09c0984b0022ec431f5718eeef2da56389f0d91eb1779ec1f82946ab9a2c3b5",
+				"dweb:/ipfs/QmPet3fiRAVj4ULbUBHjgmoH2RQVYAJ2vnrfAzYNVZ9Rgz"
+			]
+		},
+		"contracts/interfaces/IBondingCalculator.sol": {
+			"keccak256": "0x5176ee1c1f51e3dfa75d298783c4927b5c5ff2ffb5b6e3bb99bdbf7664501461",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://1781ec88e9fa7df2ab07992c23416217e5a8580155016fc1daee7acdb1727ecf",
+				"dweb:/ipfs/QmeFpk4uAuJLTtYYDXGwC8b4mmpv3JxCqrBAZrToztoEgx"
+			]
+		},
+		"contracts/interfaces/IERC20.sol": {
+			"keccak256": "0xc379ec1f3a741cc00948003e24687516b8fdb71914cd3b90b10589d74fe1d49f",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://fdb71c90b122d9421c799a6b89d8f2c1aba66be1ce2b51d57ba8effb89d73a9c",
+				"dweb:/ipfs/QmboLxPYNXFfF7Bc3vprbp9a7UFqC5EaU2ARK7oFZYCBYB"
+			]
+		},
+		"contracts/interfaces/IERC20Metadata.sol": {
+			"keccak256": "0x9690aab5d4ff226e2618763ca0eb46853234aba1582ba0392c2cdcb2b3c7274c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://8b60dbe1980b77c76355fb44acc0365a3bf783d3a9223eee04a96da9359038ab",
+				"dweb:/ipfs/QmPMw8EZhb5VAJhNjVeTpVQK2nu26DtMtGBZdfd1oFKNML"
+			]
+		},
+		"contracts/interfaces/IOHM.sol": {
+			"keccak256": "0xe6111d365043303c61d7ba5b1b234d8f1bc6192fd7f28bbced94abe804898fb7",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://4a9df859c513d46a73b2d21e5172fa5e9361b9b167ad08efe221a4d6fc778df2",
+				"dweb:/ipfs/Qmb2zzGnK3XHXumpAQGZVmMVq5z8xqKJBa9cGb5HfDagGw"
+			]
+		},
+		"contracts/interfaces/IOlympusAuthority.sol": {
+			"keccak256": "0x93c02d36be0a6876183f67e72acf64e0206d0e1e48fb3b9c9ed5614200d9c934",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb4dba92f274a0d22c1b2d4fa2a0aeafd00e6d8502e0731645097dafa6756468",
+				"dweb:/ipfs/QmR8avzt2GPK2Cxx96eFNuu6LmL7LiWxDkEBwEwj2qN7Kj"
+			]
+		},
+		"contracts/interfaces/IOwnable.sol": {
+			"keccak256": "0x29d92f94f4517d948d3a314e89008ae96e189cc21d410d477ddfe3766e5d665a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://939c2fa81ad0f94c4c76754676f1db4340f1f1cba50cd20dbbb5a71be8945f65",
+				"dweb:/ipfs/QmQzo16egRWr1BGdPh9AML4G2q1qG57vK4ChMcddDbm1r5"
+			]
+		},
+		"contracts/interfaces/ITreasury.sol": {
+			"keccak256": "0x3a7e171916da6bf9b28904c2adc6ede32896a841e7f7ede0ad60da6804659c56",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://591b853c1ba8b666992cabc4279b1d9bfc32e79c618b14e42026bc4ab5a8b9f3",
+				"dweb:/ipfs/QmNMn45JaWKZvMg6Fk8JTuCTVJRcAozFmEAGmLHKr7cZ1b"
+			]
+		},
+		"contracts/interfaces/IsOHM.sol": {
+			"keccak256": "0xa8e9f615088cf1c01284eadef0c1f673f64ca212ac94c00a90cc566981f9065c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://57e8c2b44afb72a72145f8d0bc76ead08032cf9afc987a2f15cd714a9a019adb",
+				"dweb:/ipfs/Qmb9AzboTar2MksmrVxReqo9MX79iAw4meeP1Cr2Gq5UQk"
+			]
+		},
+		"contracts/libraries/SafeERC20.sol": {
+			"keccak256": "0x778abe92595c692abcf3bec8b72f4491746626d1a057c76b97c8d1a7d759f7b0",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://466b8a5fae532ca4fc34bff92b0f23f3abe6689f5dbbb1aeb6ef2351c00e1f54",
+				"dweb:/ipfs/QmZr7LTTXLdDzfoAJtbKFfCDLmq4hX9r2dycDiEMdzk2Wk"
+			]
+		},
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0xf2edfc9cacbecb4aa48c6e5752a2d87939b450b64c18e77ad1098430d0772005",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://e6a53bcf01804ba55befe28b960f5fb83d677b408a6923181987259cbd0257d9",
+				"dweb:/ipfs/QmQFd3E8cQGcHLN8uaX9cQcVsrgEikNEHCGee1iXJ1BXfd"
+			]
+		},
+		"contracts/types/OlympusAccessControlled.sol": {
+			"keccak256": "0x23457dbe4e9afae578313d2c73ea3880ca58c16d461fdc6ae83eb98e03ea43f7",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://b6ae33e2325cc7b05041be5e3ffdf5979daa3aaf8aea60aee20341f1eb9831e3",
+				"dweb:/ipfs/QmaiQ9dWmsXtz68c3rWJXRnkCzeRngu6M2fzjSCiQpovUr"
+			]
+		}
+	},
+	"version": 1
+}

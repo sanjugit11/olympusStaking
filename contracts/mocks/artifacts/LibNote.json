@@ -1,0 +1,96 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"görli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220d670aeddd71c734525dfa6dd49fd5b57ccfae5ca80860842aab5814b811fa7de64736f6c63430007050033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x3F DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xD6 PUSH17 0xAEDDD71C734525DFA6DD49FD5B57CCFAE5 0xCA DUP1 DUP7 ADDMOD TIMESTAMP 0xAA 0xB5 DUP2 0x4B DUP2 0x1F 0xA7 0xDE PUSH5 0x736F6C6343 STOP SMOD SDIV STOP CALLER ",
+			"sourceMap": "61:1195:0:-:0;;;;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "6080604052600080fdfea2646970667358221220d670aeddd71c734525dfa6dd49fd5b57ccfae5ca80860842aab5814b811fa7de64736f6c63430007050033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xD6 PUSH17 0xAEDDD71C734525DFA6DD49FD5B57CCFAE5 0xCA DUP1 DUP7 ADDMOD TIMESTAMP 0xAA 0xB5 DUP2 0x4B DUP2 0x1F 0xA7 0xDE PUSH5 0x736F6C6343 STOP SMOD SDIV STOP CALLER ",
+			"sourceMap": "61:1195:0:-:0;;;;;"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "12600",
+				"executionCost": "66",
+				"totalCost": "12666"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": [
+		{
+			"anonymous": true,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes4",
+					"name": "sig",
+					"type": "bytes4"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "usr",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "arg1",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "arg2",
+					"type": "bytes32"
+				},
+				{
+					"indexed": false,
+					"internalType": "bytes",
+					"name": "data",
+					"type": "bytes"
+				}
+			],
+			"name": "LogNote",
+			"type": "event"
+		}
+	]
+}

@@ -1,0 +1,325 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"görli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"approve(address,uint256)": "095ea7b3",
+			"burn(address,uint256)": "9dc29fac",
+			"deny(address)": "9c52a7f1",
+			"mint(address,uint256)": "40c10f19",
+			"move(address,address,uint256)": "bb35783b",
+			"permit(address,address,uint256,uint256,bool,uint8,bytes32,bytes32)": "8fcbaf0c",
+			"pull(address,uint256)": "f2d5d56b",
+			"push(address,uint256)": "b753a98c",
+			"rely(address)": "65fae35e",
+			"transfer(address,uint256)": "a9059cbb",
+			"transferFrom(address,address,uint256)": "23b872dd",
+			"wards()": "3797fb6e"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "usr",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "wad",
+					"type": "uint256"
+				}
+			],
+			"name": "approve",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "usr",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "wad",
+					"type": "uint256"
+				}
+			],
+			"name": "burn",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "guy",
+					"type": "address"
+				}
+			],
+			"name": "deny",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "usr",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "wad",
+					"type": "uint256"
+				}
+			],
+			"name": "mint",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "src",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "dst",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "wad",
+					"type": "uint256"
+				}
+			],
+			"name": "move",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "holder",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "spender",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "nonce",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "expiry",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "allowed",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint8",
+					"name": "v",
+					"type": "uint8"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "r",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "s",
+					"type": "bytes32"
+				}
+			],
+			"name": "permit",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "usr",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "wad",
+					"type": "uint256"
+				}
+			],
+			"name": "pull",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "usr",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "wad",
+					"type": "uint256"
+				}
+			],
+			"name": "push",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "guy",
+					"type": "address"
+				}
+			],
+			"name": "rely",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "dst",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "wad",
+					"type": "uint256"
+				}
+			],
+			"name": "transfer",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "src",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "dst",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "wad",
+					"type": "uint256"
+				}
+			],
+			"name": "transferFrom",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "wards",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

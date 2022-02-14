@@ -1,0 +1,4104 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/user/Ant_project/newOhmDao/contracts/governance/GovernorAlpha.sol": {
+      "lastModificationDate": 1643348708371,
+      "contentHash": "353218adf03dd01a9f0f8d7ef65d47db",
+      "sourceName": "contracts/governance/GovernorAlpha.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.5.16"
+      ],
+      "artifacts": [
+        "GovernorAlpha",
+        "TimelockInterface",
+        "gOHMInterface",
+        "sOHMInterface"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/governance/GovernorOHMegaDelegate.sol": {
+      "lastModificationDate": 1643348708371,
+      "contentHash": "edc3318c635f72ae3dd8bcd9a3d8c31e",
+      "sourceName": "contracts/governance/GovernorOHMegaDelegate.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./GovernorOHMegaInterfaces.sol"
+      ],
+      "versionPragmas": [
+        "^0.5.16"
+      ],
+      "artifacts": [
+        "GovernorOHMegaDelegate"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/governance/GovernorOHMegaInterfaces.sol": {
+      "lastModificationDate": 1643348708371,
+      "contentHash": "6f3c56ced6f0911c8e47f293bce54d63",
+      "sourceName": "contracts/governance/GovernorOHMegaInterfaces.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.5.16"
+      ],
+      "artifacts": [
+        "GovernorAlpha",
+        "GovernorOHMegaDelegateStorageV1",
+        "GovernorOHMegaDelegatorStorage",
+        "GovernorOHMegaEvents",
+        "TimelockInterface",
+        "gOHMInterface",
+        "sOHMInterface"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/governance/GovernorOHMegaDelegator.sol": {
+      "lastModificationDate": 1643348708371,
+      "contentHash": "05ab875d66526dd7e60fe40f5c37d5ec",
+      "sourceName": "contracts/governance/GovernorOHMegaDelegator.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./GovernorOHMegaInterfaces.sol"
+      ],
+      "versionPragmas": [
+        "^0.5.16"
+      ],
+      "artifacts": [
+        "GovernorOHMegaDelegator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/governance/Timelock.sol": {
+      "lastModificationDate": 1643348708371,
+      "contentHash": "4970aa58d5e79122b241103fb1ff922d",
+      "sourceName": "contracts/governance/Timelock.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.5.16"
+      ],
+      "artifacts": [
+        "SafeMath",
+        "Timelock"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/AaveAllocator.sol": {
+      "lastModificationDate": 1644213936104,
+      "contentHash": "d458e92c672b2ac36ea846c45741d120",
+      "sourceName": "contracts/allocators/AaveAllocator.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/Address.sol",
+        "../libraries/SafeMath.sol",
+        "../libraries/SafeERC20.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/ITreasury.sol",
+        "../types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "AaveAllocator",
+        "ILendingPool",
+        "IStakedTokenIncentivesController"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/libraries/SafeMath.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "74f97664c3905cd38a0840101e42d69b",
+      "sourceName": "contracts/libraries/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/Treasury.sol": {
+      "lastModificationDate": 1644213941460,
+      "contentHash": "5b5ddf55c755821cf1665b52c8a05b17",
+      "sourceName": "contracts/Treasury.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./libraries/SafeMath.sol",
+        "./libraries/SafeERC20.sol",
+        "./interfaces/IOwnable.sol",
+        "./interfaces/IERC20.sol",
+        "./interfaces/IERC20Metadata.sol",
+        "./interfaces/IOHM.sol",
+        "./interfaces/IsOHM.sol",
+        "./interfaces/IBondingCalculator.sol",
+        "./interfaces/ITreasury.sol",
+        "./types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "OlympusTreasury"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/vesting/Investor.sol": {
+      "lastModificationDate": 1643348708383,
+      "contentHash": "19f1913063d26b59421d7247dadd22af",
+      "sourceName": "contracts/vesting/Investor.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeMath.sol",
+        "../libraries/SafeERC20.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/IgOHM.sol",
+        "../interfaces/IStaking.sol",
+        "../types/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "IClaim",
+        "InvestorClaimV2"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/vesting/Genesis.sol": {
+      "lastModificationDate": 1643348708383,
+      "contentHash": "32c99c8809bcb0eadc022fb8747446b8",
+      "sourceName": "contracts/vesting/Genesis.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeMath.sol",
+        "../libraries/SafeERC20.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/IgOHM.sol",
+        "../interfaces/IStaking.sol",
+        "../types/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "GenesisClaim",
+        "IClaim"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/sOlympusERC20.sol": {
+      "lastModificationDate": 1644390292090,
+      "contentHash": "9a423da4fde2b6cd92417fd8b0d56bc5",
+      "sourceName": "contracts/sOlympusERC20.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./libraries/Address.sol",
+        "./libraries/SafeMath.sol",
+        "./types/ERC20Permit.sol",
+        "./interfaces/IgOHM.sol",
+        "./interfaces/IsOHM.sol",
+        "./interfaces/IStaking.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "sOlympus"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/types/ERC20Permit.sol": {
+      "lastModificationDate": 1643780585171,
+      "contentHash": "16e4b6f829c07fc552d980053420ffa2",
+      "sourceName": "contracts/types/ERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20Permit.sol",
+        "./ERC20.sol",
+        "../cryptography/EIP712.sol",
+        "../cryptography/ECDSA.sol",
+        "../libraries/Counters.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "ERC20Permit"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/types/ERC20.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "a5dca76078d86bc9f0cef865039b75a1",
+      "sourceName": "contracts/types/ERC20.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeMath.sol",
+        "../interfaces/IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/cryptography/EIP712.sol": {
+      "lastModificationDate": 1643348708371,
+      "contentHash": "668c7f47877555879e1f8d993d32f7f8",
+      "sourceName": "contracts/cryptography/EIP712.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ECDSA.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "EIP712"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/cryptography/ECDSA.sol": {
+      "lastModificationDate": 1643348708367,
+      "contentHash": "4634d2f33ebeb28e09ea1bbc8ef6fdc3",
+      "sourceName": "contracts/cryptography/ECDSA.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "ECDSA"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/libraries/Counters.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "3b211bcff64566f49536b25cacebeb68",
+      "sourceName": "contracts/libraries/Counters.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "Counters"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/Staking.sol": {
+      "lastModificationDate": 1644821101134,
+      "contentHash": "f7a1c3010dd3e0d56b5cac6d37968d3b",
+      "sourceName": "contracts/Staking.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./libraries/SafeMath.sol",
+        "./libraries/SafeERC20.sol",
+        "./interfaces/IERC20.sol",
+        "./interfaces/IsOHM.sol",
+        "./interfaces/IgOHM.sol",
+        "./interfaces/IDistributor.sol",
+        "./types/OlympusAccessControlled.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "OlympusStaking"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/StakingDistributor.sol": {
+      "lastModificationDate": 1644301479874,
+      "contentHash": "924b6fdc49a59e6f965159a18a8c75a6",
+      "sourceName": "contracts/StakingDistributor.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./libraries/SafeERC20.sol",
+        "./libraries/SafeMath.sol",
+        "./interfaces/IERC20.sol",
+        "./interfaces/ITreasury.sol",
+        "./interfaces/IDistributor.sol",
+        "./types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "Distributor"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/testnet/OhmFaucet.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "69da4d21a5e64839cc790167cedbbf6c",
+      "sourceName": "contracts/testnet/OhmFaucet.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol",
+        "../types/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "OhmFaucet"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/StandardBondingCalculator.sol": {
+      "lastModificationDate": 1643952471787,
+      "contentHash": "8b951e40a09d33de313fff4c47a7aea8",
+      "sourceName": "contracts/StandardBondingCalculator.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./libraries/SafeMath.sol",
+        "./libraries/FixedPoint.sol",
+        "./libraries/Address.sol",
+        "./libraries/SafeERC20.sol",
+        "./interfaces/IERC20Metadata.sol",
+        "./interfaces/IERC20.sol",
+        "./interfaces/IBondingCalculator.sol",
+        "./interfaces/IUniswapV2ERC20.sol",
+        "./interfaces/IUniswapV2Pair.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "OlympusBondingCalculator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/libraries/FixedPoint.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "0c26216a686292013d7876e58d0a3145",
+      "sourceName": "contracts/libraries/FixedPoint.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./FullMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "Babylonian",
+        "BitMath",
+        "FixedPoint"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/libraries/FullMath.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "bd4551704b727b9c8b50197b5df9221a",
+      "sourceName": "contracts/libraries/FullMath.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "FullMath"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/migration/OlympusTokenMigrator.sol": {
+      "lastModificationDate": 1644213936824,
+      "contentHash": "037583976826b8ccc4e1db8852a24674",
+      "sourceName": "contracts/migration/OlympusTokenMigrator.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol",
+        "../interfaces/IsOHM.sol",
+        "../interfaces/IwsOHM.sol",
+        "../interfaces/IgOHM.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/IStaking.sol",
+        "../interfaces/IOwnable.sol",
+        "../interfaces/IUniswapV2Router.sol",
+        "../interfaces/IStakingV1.sol",
+        "../interfaces/ITreasuryV1.sol",
+        "../types/OlympusAccessControlled.sol",
+        "../libraries/SafeMath.sol",
+        "../libraries/SafeERC20.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "OlympusTokenMigrator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/OlympusERC20.sol": {
+      "lastModificationDate": 1643952457905,
+      "contentHash": "8b8cc31aa33806987b5c0cd3b94ccf8b",
+      "sourceName": "contracts/OlympusERC20.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./libraries/SafeMath.sol",
+        "./interfaces/IERC20.sol",
+        "./interfaces/IOHM.sol",
+        "./interfaces/IERC20Permit.sol",
+        "./types/ERC20Permit.sol",
+        "./types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "OlympusERC20Token"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/governance/gOHM.sol": {
+      "lastModificationDate": 1644385325442,
+      "contentHash": "be2c19010aac1a071cdd2814be074702",
+      "sourceName": "contracts/governance/gOHM.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeMath.sol",
+        "../libraries/Address.sol",
+        "../interfaces/IsOHM.sol",
+        "../interfaces/IgOHM.sol",
+        "../types/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "gOHM"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/OnsenAllocator.sol": {
+      "lastModificationDate": 1643348708367,
+      "contentHash": "e16bd8167503e8b5e9d6cb4591c90094",
+      "sourceName": "contracts/allocators/OnsenAllocator.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/Address.sol",
+        "../libraries/SafeMath.sol",
+        "../libraries/SafeERC20.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/IAllocator.sol",
+        "../types/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "IMasterChef",
+        "ISushiBar",
+        "OnsenAllocator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/RewardHarvestor.sol": {
+      "lastModificationDate": 1643348708367,
+      "contentHash": "10e3097d185bee32d7e11bb3a74eefc1",
+      "sourceName": "contracts/allocators/RewardHarvestor.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IAllocator.sol",
+        "../types/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "IOnsenAllocator",
+        "RewardHarvester"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/GroAllocator.sol": {
+      "lastModificationDate": 1643348708363,
+      "contentHash": "7d2a073807421536123812e1751aebdf",
+      "sourceName": "contracts/allocators/GroAllocator.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/Address.sol",
+        "../libraries/SafeMath.sol",
+        "../libraries/SafeERC20.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/IAllocator.sol",
+        "../types/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "GroDAIAllocator",
+        "IGroDepositHandler",
+        "IGroWithdrawHandler"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/FraxSharesAllocator.sol": {
+      "lastModificationDate": 1643348708363,
+      "contentHash": "f7c1a8492611f596c50afdd14b8de9af",
+      "sourceName": "contracts/allocators/FraxSharesAllocator.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/IAllocator.sol",
+        "../interfaces/IERC20.sol",
+        "../libraries/SafeERC20.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "FraxSharesAllocator",
+        "IveFXS",
+        "IveFXSYieldDistributorV4"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts-upgradeable/proxy/Initializable.sol": {
+      "lastModificationDate": 1644323776762,
+      "contentHash": "71b3ac8d4da61bb6c6708c12f56e3c1f",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/AddressUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.24 <0.8.0"
+      ],
+      "artifacts": [
+        "Initializable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+      "lastModificationDate": 1644323776766,
+      "contentHash": "91a7735bfcbb48c7482f10f1083a8ed8",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/ContextUpgradeable.sol",
+        "../proxy/Initializable.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "OwnableUpgradeable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol": {
+      "lastModificationDate": 1644323776766,
+      "contentHash": "33cad0216fea16ce4baadc5603b84218",
+      "sourceName": "@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "SafeMathUpgradeable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol": {
+      "lastModificationDate": 1644323776766,
+      "contentHash": "baee93b27b5b91092cb32dd0b22d0a4d",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20Upgradeable.sol",
+        "../../math/SafeMathUpgradeable.sol",
+        "../../utils/AddressUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "SafeERC20Upgradeable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1644323776746,
+      "contentHash": "aa72beb3bf14f8394b4a8a292d66589c",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.2 <0.8.0"
+      ],
+      "artifacts": [
+        "AddressUpgradeable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1644323776746,
+      "contentHash": "9f901c17a18eadc08042b6a510da3b7d",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../proxy/Initializable.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "ContextUpgradeable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
+      "lastModificationDate": 1644323776762,
+      "contentHash": "6c8edd65243ec9d6eb91cc63cce2cd16",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Upgradeable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/FraxSharesAllocatorVNext.sol": {
+      "lastModificationDate": 1643348708363,
+      "contentHash": "4e8ed9244ea7a94d1fdefb0f3cf80aef",
+      "sourceName": "contracts/allocators/FraxSharesAllocatorVNext.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/IERC20.sol",
+        "./FraxSharesAllocator.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "FraxSharesAllocatorVNext"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/ConvexAllocator.sol": {
+      "lastModificationDate": 1644213933660,
+      "contentHash": "c1f9aafbc65ca219fb4e093d33093292",
+      "sourceName": "contracts/allocators/ConvexAllocator.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/Address.sol",
+        "../libraries/SafeMath.sol",
+        "../libraries/SafeERC20.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/IAllocator.sol",
+        "../types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "ConvexAllocator",
+        "IConvex",
+        "IConvexRewards",
+        "ICurve3Pool"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/migration/LiquidityMigrator.sol": {
+      "lastModificationDate": 1644213937480,
+      "contentHash": "116fc2a1b9e8922070c331978a34bb25",
+      "sourceName": "contracts/migration/LiquidityMigrator.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol",
+        "../libraries/SafeERC20.sol",
+        "../libraries/SafeMath.sol",
+        "../interfaces/IUniswapV2Router.sol",
+        "../interfaces/IOlympusAuthority.sol",
+        "../types/OlympusAccessControlled.sol",
+        "../interfaces/ITreasury.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "IMigrator",
+        "LiquidityMigrator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/migration/CrossChainMigrator.sol": {
+      "lastModificationDate": 1644213938188,
+      "contentHash": "1ec3b58b3f643119a3a43cd0d4d8a93a",
+      "sourceName": "contracts/migration/CrossChainMigrator.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol",
+        "../interfaces/IOwnable.sol",
+        "../types/Ownable.sol",
+        "../libraries/SafeERC20.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "CrossChainMigrator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/OLD/OLDwsOHM.sol": {
+      "lastModificationDate": 1643348708359,
+      "contentHash": "49de18cfe88721832f41be104c1376b9",
+      "sourceName": "contracts/OLD/OLDwsOHM.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "Address",
+        "ERC20",
+        "IsOHMOLD",
+        "SafeERC20",
+        "SafeMath",
+        "wOHM"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/mocks/AccessControlledMock.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "9d4826a31c928329bc78c4e61d862790",
+      "sourceName": "contracts/mocks/AccessControlledMock.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "AccessControlledMock"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/types/Guardable.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "4ed28f319b4c330803827081fbb303be",
+      "sourceName": "contracts/types/Guardable.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IGuardable.sol"
+      ],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "Guardable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/ITokemakManager.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "cfbe0cf3e4eea45ef59167261086f22b",
+      "sourceName": "contracts/interfaces/ITokemakManager.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "IManager"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/mocks/DAI.sol": {
+      "lastModificationDate": 1643707084660,
+      "contentHash": "c602cd29a69fa8219c0e16180f87581f",
+      "sourceName": "contracts/mocks/DAI.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "DAI",
+        "IDAI",
+        "LibNote"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/mocks/Frax.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "91184a476050283b192214ca7824f795",
+      "sourceName": "contracts/mocks/Frax.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.7.5"
+      ],
+      "artifacts": [
+        "FRAX",
+        "IFRAX",
+        "LibNote"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/types/OlympusAccessControlled.sol": {
+      "lastModificationDate": 1643780146661,
+      "contentHash": "929309fa799d4422554a5bc7068b37ab",
+      "sourceName": "contracts/types/OlympusAccessControlled.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IOlympusAuthority.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "OlympusAccessControlled"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IOlympusAuthority.sol": {
+      "lastModificationDate": 1643780145393,
+      "contentHash": "304ac2cb9fd1967a1cf7145991415658",
+      "sourceName": "contracts/interfaces/IOlympusAuthority.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IOlympusAuthority"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/ITreasury.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "c52dff676d48bf91e891332e3ff7f53e",
+      "sourceName": "contracts/interfaces/ITreasury.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "ITreasury"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/types/Ownable.sol": {
+      "lastModificationDate": 1643348708383,
+      "contentHash": "ac27340aae051ab6831db45b383599c8",
+      "sourceName": "contracts/types/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IOwnable.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IOwnable.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "dde034b038211efb1f8ebf52b69c2b57",
+      "sourceName": "contracts/interfaces/IOwnable.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IOwnable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IStaking.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "c8116ea4c668164261fe83e4640c5be0",
+      "sourceName": "contracts/interfaces/IStaking.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IStaking"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IsOHM.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "3b4214cab220d2ed0b2396cd1e434c4a",
+      "sourceName": "contracts/interfaces/IsOHM.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IsOHM"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IERC20.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "e12befd418c25d61f210f7e6d511f089",
+      "sourceName": "contracts/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1644322819642,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/mocks/MockSOHM.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "2c505fb4549c13013e6a627dfd3c12b4",
+      "sourceName": "contracts/mocks/MockSOHM.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "MockSOHM"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1644324058535,
+      "contentHash": "f48de0eaae9544072b8766e2eac528a7",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1644324058547,
+      "contentHash": "302d9755e46bc69d7058b0cbe7185e37",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1644324058547,
+      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1644324058531,
+      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IDistributor.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "97541923a00a490449d0a041d9daf867",
+      "sourceName": "contracts/interfaces/IDistributor.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IDistributor"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IUniswapV2Pair.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "85d227ee5a37e011310062a143768433",
+      "sourceName": "contracts/interfaces/IUniswapV2Pair.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IUniswapV2ERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IUniswapV2Pair"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IUniswapV2ERC20.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "2bc7c5ea00fdf89285d79a94d5b0f19c",
+      "sourceName": "contracts/interfaces/IUniswapV2ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IUniswapV2ERC20"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IBondingCalculator.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "888e0edd7d71711fb4490ec7297068c6",
+      "sourceName": "contracts/interfaces/IBondingCalculator.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IBondingCalculator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IERC20Metadata.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "2e201ee71deeaeb136e78c33b46bdd8e",
+      "sourceName": "contracts/interfaces/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/BondDepository.sol": {
+      "lastModificationDate": 1643868989032,
+      "contentHash": "7a652b3b053b5d06498d0f644b068108",
+      "sourceName": "contracts/BondDepository.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./types/NoteKeeper.sol",
+        "./libraries/SafeERC20.sol",
+        "./interfaces/IERC20Metadata.sol",
+        "./interfaces/IBondDepository.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "OlympusBondDepositoryV2"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/types/NoteKeeper.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "5a78c54498c338247904504127b24960",
+      "sourceName": "contracts/types/NoteKeeper.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../types/FrontEndRewarder.sol",
+        "../interfaces/IgOHM.sol",
+        "../interfaces/IStaking.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/INoteKeeper.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "NoteKeeper"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/libraries/SafeERC20.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "ad8f84d92022aeaff87b65d4faf2792c",
+      "sourceName": "contracts/libraries/SafeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "SafeERC20"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IBondDepository.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "f253e397e902c9094a7657a1fb41d470",
+      "sourceName": "contracts/interfaces/IBondDepository.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IBondDepository"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/types/FrontEndRewarder.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "a338813eb80cbc7a52fbe00f5219cbcf",
+      "sourceName": "contracts/types/FrontEndRewarder.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../types/OlympusAccessControlled.sol",
+        "../interfaces/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "FrontEndRewarder"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IgOHM.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "66319acac0966a408c3ec1e8b2586ec0",
+      "sourceName": "contracts/interfaces/IgOHM.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IgOHM"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/INoteKeeper.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "3670d1f60b947b7d1bc80ee82456712a",
+      "sourceName": "contracts/interfaces/INoteKeeper.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "INoteKeeper"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/peripheral/YieldDirector.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "663f96dc5c1b015797d524cbfa0cf4b3",
+      "sourceName": "contracts/peripheral/YieldDirector.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol",
+        "../interfaces/IsOHM.sol",
+        "../libraries/SafeERC20.sol",
+        "../interfaces/IYieldDirector.sol",
+        "../types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "YieldDirector"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IYieldDirector.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "2ca2f5a1a512499a6984ff9f54016f3a",
+      "sourceName": "contracts/interfaces/IYieldDirector.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IYieldDirector"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/libraries/Address.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "7a642aacdee32d3e75c6026b71fa6a2c",
+      "sourceName": "contracts/libraries/Address.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IAllocator.sol": {
+      "lastModificationDate": 1643348708371,
+      "contentHash": "dc7705979e6ebb82e206991d89f9eb39",
+      "sourceName": "contracts/interfaces/IAllocator.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IAllocator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IERC20Permit.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "2e3af0b4671622138c7f5596bf4c6401",
+      "sourceName": "contracts/interfaces/IERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IERC20Permit"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IOHM.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "02af4da62443f43d30b1800570949305",
+      "sourceName": "contracts/interfaces/IOHM.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IOHM"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/OlympusAuthority.sol": {
+      "lastModificationDate": 1644208729486,
+      "contentHash": "82f5cc94c95aa576ec7a37c963891e79",
+      "sourceName": "contracts/OlympusAuthority.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IOlympusAuthority.sol",
+        "./types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "OlympusAuthority"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/migration/BalancerLiquidityMigrator.sol": {
+      "lastModificationDate": 1644213938932,
+      "contentHash": "8ac126e6e0b5dfaba9a472b04ef3670a",
+      "sourceName": "contracts/migration/BalancerLiquidityMigrator.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeERC20.sol",
+        "../interfaces/ITreasury.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/IUniswapV2Router.sol",
+        "../interfaces/IOlympusAuthority.sol",
+        "../types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "BalancerLiquidityMigrator",
+        "IBalancerVault"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IUniswapV2Router.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "22f943f1b70a95c7beee500644793957",
+      "sourceName": "contracts/interfaces/IUniswapV2Router.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IUniswapV2Router"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/ITreasuryV1.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "1c27de18b5710a6c0dceb1958c62820c",
+      "sourceName": "contracts/interfaces/ITreasuryV1.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "ITreasuryV1"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IStakingV1.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "5a45be7fde9497b574faf6344819ef20",
+      "sourceName": "contracts/interfaces/IStakingV1.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IStakingV1"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IwsOHM.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "55be5661ab55c65508f81de9521523ac",
+      "sourceName": "contracts/interfaces/IwsOHM.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IwsOHM"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/MetaGovernanceAllocator.sol": {
+      "lastModificationDate": 1643348708363,
+      "contentHash": "90804df44de142a117b9fc16a0fa8a50",
+      "sourceName": "contracts/allocators/MetaGovernanceAllocator.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeERC20.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/ITreasury.sol",
+        "../types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "IStaking",
+        "MetaGovernanceAllocator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/LUSDAllocator.sol": {
+      "lastModificationDate": 1644213896995,
+      "contentHash": "07f21b9005195b99e0328575fb2d64eb",
+      "sourceName": "contracts/allocators/LUSDAllocator.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeERC20.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/IERC20Metadata.sol",
+        "../interfaces/ITreasury.sol",
+        "./interfaces/ISwapRouter.sol",
+        "./interfaces/IWETH.sol",
+        "./interfaces/LiquityInterfaces.sol",
+        "../types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "LUSDAllocator"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/interfaces/ISwapRouter.sol": {
+      "lastModificationDate": 1643348708367,
+      "contentHash": "93379c98aeaffbbeedcc8dd9f6132a13",
+      "sourceName": "contracts/allocators/interfaces/ISwapRouter.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "ISwapRouter"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/interfaces/IWETH.sol": {
+      "lastModificationDate": 1643348708367,
+      "contentHash": "7f6fc59194e90370943d3ac6ae133006",
+      "sourceName": "contracts/allocators/interfaces/IWETH.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../interfaces/IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IWETH"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/interfaces/LiquityInterfaces.sol": {
+      "lastModificationDate": 1643348708367,
+      "contentHash": "8e0b5e61862992b0281d70087bce15fe",
+      "sourceName": "contracts/allocators/interfaces/LiquityInterfaces.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": [
+        "ILQTYStaking",
+        "IStabilityPool"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/allocators/alchemixAllocator.sol": {
+      "lastModificationDate": 1643348708367,
+      "contentHash": "23c8609abd30171f9cf0f548185c89bc",
+      "sourceName": "contracts/allocators/alchemixAllocator.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeERC20.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/ITreasury.sol",
+        "../types/OlympusAccessControlled.sol"
+      ],
+      "versionPragmas": [
+        "0.8.10"
+      ],
+      "artifacts": [
+        "AlchemixAllocator",
+        "IStakingPools",
+        "ITokemakManager",
+        "ITokemaktALCX"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/types/VaultOwned.sol": {
+      "lastModificationDate": 1643348708383,
+      "contentHash": "49945b0e9f6b5f004bf26a4fa0df9b17",
+      "sourceName": "contracts/types/VaultOwned.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Ownable.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "VaultOwned"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IGovernable.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "da56e0dada55998ac356d9210d5b99db",
+      "sourceName": "contracts/interfaces/IGovernable.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IGovernable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/types/Governable.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "c1f38aedbab770309bdfabb227a1723c",
+      "sourceName": "contracts/types/Governable.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IGovernable.sol"
+      ],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "Governable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IGuardable.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "6250d99dba33d5b241ed817636f04290",
+      "sourceName": "contracts/interfaces/IGuardable.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IGuardable"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IOracle.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "25eb15b796402f544f429fcacd4932f0",
+      "sourceName": "contracts/interfaces/IOracle.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IOracle"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/ITeller.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "d7966be140e1f21fae9239e82089d99b",
+      "sourceName": "contracts/interfaces/ITeller.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "ITeller"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/interfaces/IWarmup.sol": {
+      "lastModificationDate": 1643348708375,
+      "contentHash": "1de85ba950ceb2f4ee634528e68f08d5",
+      "sourceName": "contracts/interfaces/IWarmup.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.5"
+      ],
+      "artifacts": [
+        "IWarmup"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/mocks/MockERC20.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "f72636ec35ce882e4302f813fdf0a216",
+      "sourceName": "contracts/mocks/MockERC20.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@rari-capital/solmate/src/tokens/ERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.0"
+      ],
+      "artifacts": [
+        "MockERC20"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/node_modules/@rari-capital/solmate/src/tokens/ERC20.sol": {
+      "lastModificationDate": 1644323933035,
+      "contentHash": "e2c22aed19719e4909dbd84d07295e2b",
+      "sourceName": "@rari-capital/solmate/src/tokens/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/home/user/Ant_project/newOhmDao/contracts/mocks/MockGohm.sol": {
+      "lastModificationDate": 1643348708379,
+      "contentHash": "ae534f7c3597079cfa094ca7742527a2",
+      "sourceName": "contracts/mocks/MockGohm.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./MockERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "MockGOhm"
+      ]
+    }
+  }
+}

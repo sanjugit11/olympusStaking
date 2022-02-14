@@ -1,0 +1,199 @@
+{
+	"compiler": {
+		"version": "0.7.5+commit.eb77ed08"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_wsOHM",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_gOHM",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipPulled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipPushed",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "clear",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "migrate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pullManagement",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner_",
+						"type": "address"
+					}
+				],
+				"name": "pushManagement",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceManagement",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "replenish",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/migration/CrossChainMigrator.sol": "CrossChainMigrator"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IERC20.sol": {
+			"keccak256": "0xc379ec1f3a741cc00948003e24687516b8fdb71914cd3b90b10589d74fe1d49f",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://fdb71c90b122d9421c799a6b89d8f2c1aba66be1ce2b51d57ba8effb89d73a9c",
+				"dweb:/ipfs/QmboLxPYNXFfF7Bc3vprbp9a7UFqC5EaU2ARK7oFZYCBYB"
+			]
+		},
+		"contracts/interfaces/IOwnable.sol": {
+			"keccak256": "0x29d92f94f4517d948d3a314e89008ae96e189cc21d410d477ddfe3766e5d665a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://939c2fa81ad0f94c4c76754676f1db4340f1f1cba50cd20dbbb5a71be8945f65",
+				"dweb:/ipfs/QmQzo16egRWr1BGdPh9AML4G2q1qG57vK4ChMcddDbm1r5"
+			]
+		},
+		"contracts/libraries/SafeERC20.sol": {
+			"keccak256": "0x778abe92595c692abcf3bec8b72f4491746626d1a057c76b97c8d1a7d759f7b0",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://466b8a5fae532ca4fc34bff92b0f23f3abe6689f5dbbb1aeb6ef2351c00e1f54",
+				"dweb:/ipfs/QmZr7LTTXLdDzfoAJtbKFfCDLmq4hX9r2dycDiEMdzk2Wk"
+			]
+		},
+		"contracts/migration/CrossChainMigrator.sol": {
+			"keccak256": "0xc63ee62ef34e57458c2a15cc30ff8d9ecc508b18415a430d95d5ab76761400b9",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://5dbf97d03f0b428125f7bc6626c1be8d8f8dea7bb5f559c2593c609df806c559",
+				"dweb:/ipfs/QmRuKpAfQbZPsm5T4xf2KCXYbgofHQS9et2pnixn68mCp2"
+			]
+		},
+		"contracts/types/Ownable.sol": {
+			"keccak256": "0xdc15639cf43a8a2a8b57e254bdf685527c257a2f94097ffd6ca041ffa483c6cc",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://0dce6bf4b55625a0e07802131b643f63ae5763bfeae5a8fcc63352df4fa5df7e",
+				"dweb:/ipfs/Qme7MLRydxRaGiapUBiZYYZnYKyAcYXeJHYmk1gZvBfVxW"
+			]
+		}
+	},
+	"version": 1
+}

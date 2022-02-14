@@ -1,0 +1,696 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_ohm",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_sOHM",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_gOHM",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_epochLength",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_firstEpochNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_firstEpochTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_authority",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract IOlympusAuthority",
+						"name": "authority",
+						"type": "address"
+					}
+				],
+				"name": "AuthorityUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "distributor",
+						"type": "address"
+					}
+				],
+				"name": "DistributorSet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "warmup",
+						"type": "uint256"
+					}
+				],
+				"name": "WarmupSet",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "OHM",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "authority",
+				"outputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_rebasing",
+						"type": "bool"
+					}
+				],
+				"name": "claim",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "distributor",
+				"outputs": [
+					{
+						"internalType": "contract IDistributor",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "epoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "number",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "end",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "distribute",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "forfeit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "gOHM",
+				"outputs": [
+					{
+						"internalType": "contract IgOHM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "index",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rebase",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sOHM",
+				"outputs": [
+					{
+						"internalType": "contract IsOHM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "secondsToNextEpoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "_newAuthority",
+						"type": "address"
+					}
+				],
+				"name": "setAuthority",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_distributor",
+						"type": "address"
+					}
+				],
+				"name": "setDistributor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_warmupPeriod",
+						"type": "uint256"
+					}
+				],
+				"name": "setWarmupLength",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_rebasing",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "_claim",
+						"type": "bool"
+					}
+				],
+				"name": "stake",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "supplyInWarmup",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "toggleLock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_trigger",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "_rebasing",
+						"type": "bool"
+					}
+				],
+				"name": "unstake",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "unwrap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "sBalance_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "warmupInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "deposit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gons",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expiry",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "lock",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "warmupPeriod",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "wrap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gBalance_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"claim(address,bool)": {
+					"params": {
+						"_rebasing": "bool",
+						"_to": "address"
+					},
+					"returns": {
+						"_0": "uint"
+					}
+				},
+				"forfeit()": {
+					"returns": {
+						"_0": "uint"
+					}
+				},
+				"index()": {
+					"returns": {
+						"_0": "uint"
+					}
+				},
+				"rebase()": {
+					"returns": {
+						"_0": "uint256"
+					}
+				},
+				"setDistributor(address)": {
+					"params": {
+						"_distributor": "address"
+					}
+				},
+				"setWarmupLength(uint256)": {
+					"params": {
+						"_warmupPeriod": "uint"
+					}
+				},
+				"stake(address,uint256,bool,bool)": {
+					"params": {
+						"_amount": "uint",
+						"_claim": "bool",
+						"_rebasing": "bool",
+						"_to": "address"
+					},
+					"returns": {
+						"_0": "uint"
+					}
+				},
+				"unstake(address,uint256,bool,bool)": {
+					"params": {
+						"_amount": "uint",
+						"_rebasing": "bool",
+						"_to": "address",
+						"_trigger": "bool"
+					},
+					"returns": {
+						"amount_": "uint"
+					}
+				},
+				"unwrap(address,uint256)": {
+					"params": {
+						"_amount": "uint",
+						"_to": "address"
+					},
+					"returns": {
+						"sBalance_": "uint"
+					}
+				},
+				"wrap(address,uint256)": {
+					"params": {
+						"_amount": "uint",
+						"_to": "address"
+					},
+					"returns": {
+						"gBalance_": "uint"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"claim(address,bool)": {
+					"notice": "retrieve stake from warmup"
+				},
+				"forfeit()": {
+					"notice": "forfeit stake and retrieve OHM"
+				},
+				"index()": {
+					"notice": "returns the sOHM index, which tracks rebase growth"
+				},
+				"rebase()": {
+					"notice": "trigger rebase if epoch over"
+				},
+				"secondsToNextEpoch()": {
+					"notice": "seconds until the next epoch begins"
+				},
+				"setDistributor(address)": {
+					"notice": "sets the contract address for LP staking"
+				},
+				"setWarmupLength(uint256)": {
+					"notice": "set warmup period for new stakers"
+				},
+				"stake(address,uint256,bool,bool)": {
+					"notice": "stake OHM to enter warmup"
+				},
+				"supplyInWarmup()": {
+					"notice": "total supply in warmup"
+				},
+				"toggleLock()": {
+					"notice": "prevent new deposits or claims from ext. address (protection from malicious activity)"
+				},
+				"unstake(address,uint256,bool,bool)": {
+					"notice": "redeem sOHM for OHMs"
+				},
+				"unwrap(address,uint256)": {
+					"notice": "convert _amount gOHM into sBalance_ sOHM"
+				},
+				"wrap(address,uint256)": {
+					"notice": "convert _amount sOHM into gBalance_ gOHM"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Staking.sol": "OlympusStaking"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Staking.sol": {
+			"keccak256": "0x706fa39e7a6d2464b7890315e403ba478d35d521bc2f5cf4b83ff715b947b05d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://64994489ee68f642cbb0784c3f927db53a0758e817ef842969c10667aff364d3",
+				"dweb:/ipfs/QmU7DePazUKLqLv2psq4qFSFpjQaxK8ki2yc7EzTLfRMJS"
+			]
+		},
+		"contracts/interfaces/IDistributor.sol": {
+			"keccak256": "0xd6fc7153d8030366c99d408843ea948ba7b79c269f809ddbd31b78d7d71751c8",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://e4dd2044e7e3c93eed1b90abae9ed98b11bbf5a3b6503b50d5a902b3431bbdd2",
+				"dweb:/ipfs/Qma56BMxif1AFH7ZpcGALFwYWNyiD9X43yezcFtE6Quj3V"
+			]
+		},
+		"contracts/interfaces/IERC20.sol": {
+			"keccak256": "0xc379ec1f3a741cc00948003e24687516b8fdb71914cd3b90b10589d74fe1d49f",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://fdb71c90b122d9421c799a6b89d8f2c1aba66be1ce2b51d57ba8effb89d73a9c",
+				"dweb:/ipfs/QmboLxPYNXFfF7Bc3vprbp9a7UFqC5EaU2ARK7oFZYCBYB"
+			]
+		},
+		"contracts/interfaces/IOlympusAuthority.sol": {
+			"keccak256": "0x93c02d36be0a6876183f67e72acf64e0206d0e1e48fb3b9c9ed5614200d9c934",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb4dba92f274a0d22c1b2d4fa2a0aeafd00e6d8502e0731645097dafa6756468",
+				"dweb:/ipfs/QmR8avzt2GPK2Cxx96eFNuu6LmL7LiWxDkEBwEwj2qN7Kj"
+			]
+		},
+		"contracts/interfaces/IgOHM.sol": {
+			"keccak256": "0x0e61aa62110e1fa27c32948b2fea2aa7a4805e1c2bdffc489bb39bf7bfb121b1",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://a3f2cbe8d99d39c2427e65f9e4e9bd4d7f01d8d12328023c0a0edc8aae4de061",
+				"dweb:/ipfs/QmY73ZJYa74mmYPxH91x5DqPDKbMYTnsX4B4avAYvRS8Ht"
+			]
+		},
+		"contracts/interfaces/IsOHM.sol": {
+			"keccak256": "0xa8e9f615088cf1c01284eadef0c1f673f64ca212ac94c00a90cc566981f9065c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://57e8c2b44afb72a72145f8d0bc76ead08032cf9afc987a2f15cd714a9a019adb",
+				"dweb:/ipfs/Qmb9AzboTar2MksmrVxReqo9MX79iAw4meeP1Cr2Gq5UQk"
+			]
+		},
+		"contracts/libraries/SafeERC20.sol": {
+			"keccak256": "0x778abe92595c692abcf3bec8b72f4491746626d1a057c76b97c8d1a7d759f7b0",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://466b8a5fae532ca4fc34bff92b0f23f3abe6689f5dbbb1aeb6ef2351c00e1f54",
+				"dweb:/ipfs/QmZr7LTTXLdDzfoAJtbKFfCDLmq4hX9r2dycDiEMdzk2Wk"
+			]
+		},
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0xf2edfc9cacbecb4aa48c6e5752a2d87939b450b64c18e77ad1098430d0772005",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://e6a53bcf01804ba55befe28b960f5fb83d677b408a6923181987259cbd0257d9",
+				"dweb:/ipfs/QmQFd3E8cQGcHLN8uaX9cQcVsrgEikNEHCGee1iXJ1BXfd"
+			]
+		},
+		"contracts/types/OlympusAccessControlled.sol": {
+			"keccak256": "0x23457dbe4e9afae578313d2c73ea3880ca58c16d461fdc6ae83eb98e03ea43f7",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://b6ae33e2325cc7b05041be5e3ffdf5979daa3aaf8aea60aee20341f1eb9831e3",
+				"dweb:/ipfs/QmaiQ9dWmsXtz68c3rWJXRnkCzeRngu6M2fzjSCiQpovUr"
+			]
+		}
+	},
+	"version": 1
+}

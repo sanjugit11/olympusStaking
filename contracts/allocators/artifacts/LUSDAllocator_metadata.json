@@ -1,0 +1,566 @@
+{
+	"compiler": {
+		"version": "0.8.11+commit.d7f03943"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_authority",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_treasury",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_lusdTokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_lqtyTokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_stabilityPool",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_lqtyStaking",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_frontEndAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_wethAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_hopTokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_uniswapV3Router",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract IOlympusAuthority",
+						"name": "authority",
+						"type": "address"
+					}
+				],
+				"name": "AuthorityUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "dst",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "FEE_PRECISION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "POOL_FEE_MAX",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "authority",
+				"outputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ethToLUSDRatio",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "frontEndAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getETHRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLQTYRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "minETHLUSDRate",
+						"type": "uint256"
+					}
+				],
+				"name": "harvest",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "hopTokenAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lqtyTokenAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lusdTokenAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "poolFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IOlympusAuthority",
+						"name": "_newAuthority",
+						"type": "address"
+					}
+				],
+				"name": "setAuthority",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ethToLUSDRatio",
+						"type": "uint256"
+					}
+				],
+				"name": "setEthToLUSDRatio",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_frontEndAddress",
+						"type": "address"
+					}
+				],
+				"name": "setFrontEndAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_hopTokenAddress",
+						"type": "address"
+					}
+				],
+				"name": "setHopTokenAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_poolFee",
+						"type": "uint256"
+					}
+				],
+				"name": "setPoolFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalAmountDeployed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalValueDeployed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "treasury",
+				"outputs": [
+					{
+						"internalType": "contract ITreasury",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "updateTreasury",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"deposit(uint256)": {
+					"params": {
+						"amount": "uint"
+					}
+				},
+				"getETHRewards()": {
+					"returns": {
+						"_0": "uint"
+					}
+				},
+				"getLQTYRewards()": {
+					"returns": {
+						"_0": "uint"
+					}
+				},
+				"setFrontEndAddress(address)": {
+					"params": {
+						"_frontEndAddress": "address"
+					}
+				},
+				"withdraw(address,uint256)": {
+					"params": {
+						"amount": "uint",
+						"token": "address"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"deposit(uint256)": {
+					"notice": "withdraws asset from treasury, deposits asset into stability pool"
+				},
+				"ethToLUSDRatio()": {
+					"notice": "The target percent of eth to swap to LUSD at uniswap.  divide by 1e6 to get actual value. Examples: 500000 => 500000 / 1e6 = 0.50 = 50% 330000 => 330000 / 1e6 = 0.33 = 33%"
+				},
+				"getETHRewards()": {
+					"notice": "get ETH rewards from SP"
+				},
+				"getLQTYRewards()": {
+					"notice": "get LQTY rewards from SP"
+				},
+				"harvest(uint256)": {
+					"notice": "claims LQTY & ETH Rewards.   minETHLUSDRate minimum rate of when swapping ETH->LUSD.  e.g. 3500 means we swap at a rate of 1 ETH for a minimum 3500 LUSD 1.  Harvest from LUSD StabilityPool to get ETH+LQTY rewards 2.  Stake LQTY rewards from #1.  This txn will also give out any outstanding ETH+LUSD rewards from prior staking 3.  If we have eth, convert to weth, then swap a percentage of it to LUSD.  If swap successul then send all remaining WETH to treasury 4.  Deposit LUSD from #2 and potentially #3 into StabilityPool"
+				},
+				"poolFee()": {
+					"notice": "poolFee parameter for uniswap swaprouter, divide by 1e6 to get the actual value.  See https://docs.uniswap.org/protocol/guides/swaps/multihop-swaps#calling-the-function-1 Maximum allowed value is 10000 (1%) Examples: poolFee =  3000 =>  3000 / 1e6 = 0.003 = 0.3% poolFee = 10000 => 10000 / 1e6 =  0.01 = 1.0%"
+				},
+				"setFrontEndAddress(address)": {
+					"notice": "setsFrontEndAddress for Stability pool rewards"
+				},
+				"withdraw(address,uint256)": {
+					"notice": "withdraws from stability pool, and deposits asset into treasury"
+				}
+			},
+			"notice": "Contract deploys reserves from treasury into the liquity stabilty pool, and those rewards  are then paid out to the staking contract.  See harvest() function for more details.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/allocators/LUDAllocator.sol": "LUSDAllocator"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/allocators/LUDAllocator.sol": {
+			"keccak256": "0x9754a2f4826c1a4ca384d5b96bbc86e7ed6c9dde8ebedaa75194fcf6812010af",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://d9a55c481a1482290c37899f27224c932b63e5122331956553b3d22de1fa65fa",
+				"dweb:/ipfs/QmYtTgprxP7wC3nzYD8S23VY66oTJP7VQPsrYjB5xC6LHR"
+			]
+		},
+		"contracts/allocators/interfaces/ISwapRouter.sol": {
+			"keccak256": "0xd9d3b788518fe0f0ba8f7d918cddccf96d54400e47a93fa5759db837ba619dd4",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://f14eade884a2dda8ddf8b9b0b830413b77688e14c3e8a6a955b843d2538a8d21",
+				"dweb:/ipfs/Qmavp3wZStW79WnZQtETncK2iDbzfxyA8jGLXnA6cQP6eZ"
+			]
+		},
+		"contracts/allocators/interfaces/IWETH.sol": {
+			"keccak256": "0x24c48a2c221c395172c70effba7531b97a1455915b880a3201fd1ecf4bfe52b3",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://2bd3b504e92fb8ed274dd819ec4e7ba1b67456687f2edb6fc7520b94a61250a8",
+				"dweb:/ipfs/QmbVBG3i7jxQdZTY669f7s5F4o1tqkf5fNQZRqHw5R7Qir"
+			]
+		},
+		"contracts/allocators/interfaces/LiquityInterfaces.sol": {
+			"keccak256": "0x5506e0fb593d9f5d68a95203b381d77c14c12a77177a47887d26b26a455cdbd2",
+			"urls": [
+				"bzz-raw://75f413c898c957c2a2a6ee88568903ab327c68b47f55e00e0572771a0eeb3d48",
+				"dweb:/ipfs/QmdRVUaN5E4V7SBMvBTZPkYSGBBNKB15kQSZ4k8awuVDm4"
+			]
+		},
+		"contracts/interfaces/IERC20.sol": {
+			"keccak256": "0xc379ec1f3a741cc00948003e24687516b8fdb71914cd3b90b10589d74fe1d49f",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://fdb71c90b122d9421c799a6b89d8f2c1aba66be1ce2b51d57ba8effb89d73a9c",
+				"dweb:/ipfs/QmboLxPYNXFfF7Bc3vprbp9a7UFqC5EaU2ARK7oFZYCBYB"
+			]
+		},
+		"contracts/interfaces/IERC20Metadata.sol": {
+			"keccak256": "0x9690aab5d4ff226e2618763ca0eb46853234aba1582ba0392c2cdcb2b3c7274c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://8b60dbe1980b77c76355fb44acc0365a3bf783d3a9223eee04a96da9359038ab",
+				"dweb:/ipfs/QmPMw8EZhb5VAJhNjVeTpVQK2nu26DtMtGBZdfd1oFKNML"
+			]
+		},
+		"contracts/interfaces/IOlympusAuthority.sol": {
+			"keccak256": "0x93c02d36be0a6876183f67e72acf64e0206d0e1e48fb3b9c9ed5614200d9c934",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb4dba92f274a0d22c1b2d4fa2a0aeafd00e6d8502e0731645097dafa6756468",
+				"dweb:/ipfs/QmR8avzt2GPK2Cxx96eFNuu6LmL7LiWxDkEBwEwj2qN7Kj"
+			]
+		},
+		"contracts/interfaces/ITreasury.sol": {
+			"keccak256": "0x3a7e171916da6bf9b28904c2adc6ede32896a841e7f7ede0ad60da6804659c56",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://591b853c1ba8b666992cabc4279b1d9bfc32e79c618b14e42026bc4ab5a8b9f3",
+				"dweb:/ipfs/QmNMn45JaWKZvMg6Fk8JTuCTVJRcAozFmEAGmLHKr7cZ1b"
+			]
+		},
+		"contracts/libraries/SafeERC20.sol": {
+			"keccak256": "0x778abe92595c692abcf3bec8b72f4491746626d1a057c76b97c8d1a7d759f7b0",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://466b8a5fae532ca4fc34bff92b0f23f3abe6689f5dbbb1aeb6ef2351c00e1f54",
+				"dweb:/ipfs/QmZr7LTTXLdDzfoAJtbKFfCDLmq4hX9r2dycDiEMdzk2Wk"
+			]
+		},
+		"contracts/types/OlympusAccessControlled.sol": {
+			"keccak256": "0x23457dbe4e9afae578313d2c73ea3880ca58c16d461fdc6ae83eb98e03ea43f7",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://b6ae33e2325cc7b05041be5e3ffdf5979daa3aaf8aea60aee20341f1eb9831e3",
+				"dweb:/ipfs/QmaiQ9dWmsXtz68c3rWJXRnkCzeRngu6M2fzjSCiQpovUr"
+			]
+		}
+	},
+	"version": 1
+}

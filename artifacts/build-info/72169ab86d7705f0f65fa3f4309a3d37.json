@@ -1,0 +1,2821 @@
+{
+  "id": "72169ab86d7705f0f65fa3f4309a3d37",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.7.5",
+  "solcLongVersion": "0.7.5+commit.eb77ed08",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/interfaces/ITokemakManager.sol": {
+        "content": "// SPDX-License-Identifier: MIT\n\npragma solidity 0.7.5;\npragma experimental ABIEncoderV2;\n\ninterface IManager {\n    // bytes can take on the form of deploying or recovering liquidity\n    struct ControllerTransferData {\n        bytes32 controllerId; // controller to target\n        bytes data; // data the controller will pass\n    }\n\n    struct PoolTransferData {\n        address pool; // pool to target\n        uint256 amount; // amount to transfer\n    }\n\n    struct MaintenanceExecution {\n        ControllerTransferData[] cycleSteps;\n    }\n\n    struct RolloverExecution {\n        PoolTransferData[] poolData;\n        ControllerTransferData[] cycleSteps;\n        address[] poolsForWithdraw; //Pools to target for manager -> pool transfer\n        bool complete; //Whether to mark the rollover complete\n        string rewardsIpfsHash;\n    }\n\n    event ControllerRegistered(bytes32 id, address controller);\n    event ControllerUnregistered(bytes32 id, address controller);\n    event PoolRegistered(address pool);\n    event PoolUnregistered(address pool);\n    event CycleDurationSet(uint256 duration);\n    event LiquidityMovedToManager(address pool, uint256 amount);\n    event DeploymentStepExecuted(bytes32 controller, address adapaterAddress, bytes data);\n    event LiquidityMovedToPool(address pool, uint256 amount);\n    event CycleRolloverStarted(uint256 blockNumber);\n    event CycleRolloverComplete(uint256 blockNumber);\n    event DestinationsSet(address destinationOnL1, address destinationOnL2);\n    event EventSendSet(bool eventSendSet);\n\n    /// @notice Registers controller\n    /// @param id Bytes32 id of controller\n    /// @param controller Address of controller\n    function registerController(bytes32 id, address controller) external;\n\n    /// @notice Registers pool\n    /// @param pool Address of pool\n    function registerPool(address pool) external;\n\n    /// @notice Unregisters controller\n    /// @param id Bytes32 controller id\n    function unRegisterController(bytes32 id) external;\n\n    /// @notice Unregisters pool\n    /// @param pool Address of pool\n    function unRegisterPool(address pool) external;\n\n    ///@notice Gets addresses of all pools registered\n    ///@return Memory array of pool addresses\n    function getPools() external view returns (address[] memory);\n\n    ///@notice Gets ids of all controllers registered\n    ///@return Memory array of Bytes32 controller ids\n    function getControllers() external view returns (bytes32[] memory);\n\n    ///@notice Allows for owner to set cycle duration\n    ///@param duration Block durtation of cycle\n    function setCycleDuration(uint256 duration) external;\n\n    ///@notice Starts cycle rollover\n    ///@dev Sets rolloverStarted state boolean to true\n    function startCycleRollover() external;\n\n    ///@notice Allows for controller commands to be executed midcycle\n    ///@param params Contains data for controllers and params\n    function executeMaintenance(MaintenanceExecution calldata params) external;\n\n    ///@notice Allows for withdrawals and deposits for pools along with liq deployment\n    ///@param params Contains various data for executing against pools and controllers\n    function executeRollover(RolloverExecution calldata params) external;\n\n    ///@notice Completes cycle rollover, publishes rewards hash to ipfs\n    ///@param rewardsIpfsHash rewards hash uploaded to ipfs\n    function completeRollover(string calldata rewardsIpfsHash) external;\n\n    ///@notice Gets reward hash by cycle index\n    ///@param index Cycle index to retrieve rewards hash\n    ///@return String memory hash\n    function cycleRewardsHashes(uint256 index) external view returns (string memory);\n\n    ///@notice Gets current starting block\n    ///@return uint256 with block number\n    function getCurrentCycle() external view returns (uint256);\n\n    ///@notice Gets current cycle index\n    ///@return uint256 current cycle number\n    function getCurrentCycleIndex() external view returns (uint256);\n\n    ///@notice Gets current cycle duration\n    ///@return uint256 in block of cycle duration\n    function getCycleDuration() external view returns (uint256);\n\n    ///@notice Gets cycle rollover status, true for rolling false for not\n    ///@return Bool representing whether cycle is rolling over or not\n    function getRolloverStatus() external view returns (bool);\n\n    function setDestinations(address destinationOnL1, address destinationOnL2) external;\n\n    /// @notice Sets state variable that tells contract if it can send data to EventProxy\n    /// @param eventSendSet Bool to set state variable to\n    function setEventSend(bool eventSendSet) external;\n}\n"
+      }
+    },
+    "settings": {
+      "metadata": {
+        "bytecodeHash": "none"
+      },
+      "optimizer": {
+        "enabled": true,
+        "runs": 800
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/interfaces/ITokemakManager.sol": {
+        "IManager": {
+          "abi": [
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "bytes32",
+                  "name": "id",
+                  "type": "bytes32"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "controller",
+                  "type": "address"
+                }
+              ],
+              "name": "ControllerRegistered",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "bytes32",
+                  "name": "id",
+                  "type": "bytes32"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "controller",
+                  "type": "address"
+                }
+              ],
+              "name": "ControllerUnregistered",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "duration",
+                  "type": "uint256"
+                }
+              ],
+              "name": "CycleDurationSet",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "blockNumber",
+                  "type": "uint256"
+                }
+              ],
+              "name": "CycleRolloverComplete",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "blockNumber",
+                  "type": "uint256"
+                }
+              ],
+              "name": "CycleRolloverStarted",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "bytes32",
+                  "name": "controller",
+                  "type": "bytes32"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "adapaterAddress",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "bytes",
+                  "name": "data",
+                  "type": "bytes"
+                }
+              ],
+              "name": "DeploymentStepExecuted",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "destinationOnL1",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "destinationOnL2",
+                  "type": "address"
+                }
+              ],
+              "name": "DestinationsSet",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "bool",
+                  "name": "eventSendSet",
+                  "type": "bool"
+                }
+              ],
+              "name": "EventSendSet",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "pool",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "LiquidityMovedToManager",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "pool",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "LiquidityMovedToPool",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "pool",
+                  "type": "address"
+                }
+              ],
+              "name": "PoolRegistered",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "pool",
+                  "type": "address"
+                }
+              ],
+              "name": "PoolUnregistered",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "string",
+                  "name": "rewardsIpfsHash",
+                  "type": "string"
+                }
+              ],
+              "name": "completeRollover",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "index",
+                  "type": "uint256"
+                }
+              ],
+              "name": "cycleRewardsHashes",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "internalType": "bytes32",
+                          "name": "controllerId",
+                          "type": "bytes32"
+                        },
+                        {
+                          "internalType": "bytes",
+                          "name": "data",
+                          "type": "bytes"
+                        }
+                      ],
+                      "internalType": "struct IManager.ControllerTransferData[]",
+                      "name": "cycleSteps",
+                      "type": "tuple[]"
+                    }
+                  ],
+                  "internalType": "struct IManager.MaintenanceExecution",
+                  "name": "params",
+                  "type": "tuple"
+                }
+              ],
+              "name": "executeMaintenance",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "internalType": "address",
+                          "name": "pool",
+                          "type": "address"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "amount",
+                          "type": "uint256"
+                        }
+                      ],
+                      "internalType": "struct IManager.PoolTransferData[]",
+                      "name": "poolData",
+                      "type": "tuple[]"
+                    },
+                    {
+                      "components": [
+                        {
+                          "internalType": "bytes32",
+                          "name": "controllerId",
+                          "type": "bytes32"
+                        },
+                        {
+                          "internalType": "bytes",
+                          "name": "data",
+                          "type": "bytes"
+                        }
+                      ],
+                      "internalType": "struct IManager.ControllerTransferData[]",
+                      "name": "cycleSteps",
+                      "type": "tuple[]"
+                    },
+                    {
+                      "internalType": "address[]",
+                      "name": "poolsForWithdraw",
+                      "type": "address[]"
+                    },
+                    {
+                      "internalType": "bool",
+                      "name": "complete",
+                      "type": "bool"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "rewardsIpfsHash",
+                      "type": "string"
+                    }
+                  ],
+                  "internalType": "struct IManager.RolloverExecution",
+                  "name": "params",
+                  "type": "tuple"
+                }
+              ],
+              "name": "executeRollover",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "getControllers",
+              "outputs": [
+                {
+                  "internalType": "bytes32[]",
+                  "name": "",
+                  "type": "bytes32[]"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "getCurrentCycle",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "getCurrentCycleIndex",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "getCycleDuration",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "getPools",
+              "outputs": [
+                {
+                  "internalType": "address[]",
+                  "name": "",
+                  "type": "address[]"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "getRolloverStatus",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "bytes32",
+                  "name": "id",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "address",
+                  "name": "controller",
+                  "type": "address"
+                }
+              ],
+              "name": "registerController",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "pool",
+                  "type": "address"
+                }
+              ],
+              "name": "registerPool",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "duration",
+                  "type": "uint256"
+                }
+              ],
+              "name": "setCycleDuration",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "destinationOnL1",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "destinationOnL2",
+                  "type": "address"
+                }
+              ],
+              "name": "setDestinations",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "bool",
+                  "name": "eventSendSet",
+                  "type": "bool"
+                }
+              ],
+              "name": "setEventSend",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "startCycleRollover",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "bytes32",
+                  "name": "id",
+                  "type": "bytes32"
+                }
+              ],
+              "name": "unRegisterController",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "pool",
+                  "type": "address"
+                }
+              ],
+              "name": "unRegisterPool",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ],
+          "evm": {
+            "bytecode": {
+              "generatedSources": [],
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "deployedBytecode": {
+              "generatedSources": [],
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "methodIdentifiers": {
+              "completeRollover(string)": "779e4a02",
+              "cycleRewardsHashes(uint256)": "6451e45a",
+              "executeMaintenance(((bytes32,bytes)[]))": "5e4b836b",
+              "executeRollover(((address,uint256)[],(bytes32,bytes)[],address[],bool,string))": "ec9fb8da",
+              "getControllers()": "b4e8a6c4",
+              "getCurrentCycle()": "be26ed7f",
+              "getCurrentCycleIndex()": "85790945",
+              "getCycleDuration()": "bd5da9ac",
+              "getPools()": "673a2a1f",
+              "getRolloverStatus()": "f99476c9",
+              "registerController(bytes32,address)": "427db53e",
+              "registerPool(address)": "abd90846",
+              "setCycleDuration(uint256)": "8cc23934",
+              "setDestinations(address,address)": "7d6eae72",
+              "setEventSend(bool)": "e912b5ee",
+              "startCycleRollover()": "befc42d4",
+              "unRegisterController(bytes32)": "60a50b70",
+              "unRegisterPool(address)": "76b077fc"
+            }
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"controller\",\"type\":\"address\"}],\"name\":\"ControllerRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"controller\",\"type\":\"address\"}],\"name\":\"ControllerUnregistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"duration\",\"type\":\"uint256\"}],\"name\":\"CycleDurationSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"CycleRolloverComplete\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"CycleRolloverStarted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"controller\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"adapaterAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"DeploymentStepExecuted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"destinationOnL1\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"destinationOnL2\",\"type\":\"address\"}],\"name\":\"DestinationsSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"eventSendSet\",\"type\":\"bool\"}],\"name\":\"EventSendSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"LiquidityMovedToManager\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"LiquidityMovedToPool\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"}],\"name\":\"PoolRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"}],\"name\":\"PoolUnregistered\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"rewardsIpfsHash\",\"type\":\"string\"}],\"name\":\"completeRollover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"cycleRewardsHashes\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"controllerId\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct IManager.ControllerTransferData[]\",\"name\":\"cycleSteps\",\"type\":\"tuple[]\"}],\"internalType\":\"struct IManager.MaintenanceExecution\",\"name\":\"params\",\"type\":\"tuple\"}],\"name\":\"executeMaintenance\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"struct IManager.PoolTransferData[]\",\"name\":\"poolData\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"controllerId\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct IManager.ControllerTransferData[]\",\"name\":\"cycleSteps\",\"type\":\"tuple[]\"},{\"internalType\":\"address[]\",\"name\":\"poolsForWithdraw\",\"type\":\"address[]\"},{\"internalType\":\"bool\",\"name\":\"complete\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"rewardsIpfsHash\",\"type\":\"string\"}],\"internalType\":\"struct IManager.RolloverExecution\",\"name\":\"params\",\"type\":\"tuple\"}],\"name\":\"executeRollover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getControllers\",\"outputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentCycle\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentCycleIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCycleDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPools\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getRolloverStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"controller\",\"type\":\"address\"}],\"name\":\"registerController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"}],\"name\":\"registerPool\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"duration\",\"type\":\"uint256\"}],\"name\":\"setCycleDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"destinationOnL1\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"destinationOnL2\",\"type\":\"address\"}],\"name\":\"setDestinations\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"eventSendSet\",\"type\":\"bool\"}],\"name\":\"setEventSend\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"startCycleRollover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"unRegisterController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"}],\"name\":\"unRegisterPool\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"completeRollover(string)\":{\"params\":{\"rewardsIpfsHash\":\"rewards hash uploaded to ipfs\"}},\"cycleRewardsHashes(uint256)\":{\"params\":{\"index\":\"Cycle index to retrieve rewards hash\"},\"returns\":{\"_0\":\"String memory hash\"}},\"executeMaintenance(((bytes32,bytes)[]))\":{\"params\":{\"params\":\"Contains data for controllers and params\"}},\"executeRollover(((address,uint256)[],(bytes32,bytes)[],address[],bool,string))\":{\"params\":{\"params\":\"Contains various data for executing against pools and controllers\"}},\"getControllers()\":{\"returns\":{\"_0\":\"Memory array of Bytes32 controller ids\"}},\"getCurrentCycle()\":{\"returns\":{\"_0\":\"uint256 with block number\"}},\"getCurrentCycleIndex()\":{\"returns\":{\"_0\":\"uint256 current cycle number\"}},\"getCycleDuration()\":{\"returns\":{\"_0\":\"uint256 in block of cycle duration\"}},\"getPools()\":{\"returns\":{\"_0\":\"Memory array of pool addresses\"}},\"getRolloverStatus()\":{\"returns\":{\"_0\":\"Bool representing whether cycle is rolling over or not\"}},\"registerController(bytes32,address)\":{\"params\":{\"controller\":\"Address of controller\",\"id\":\"Bytes32 id of controller\"}},\"registerPool(address)\":{\"params\":{\"pool\":\"Address of pool\"}},\"setCycleDuration(uint256)\":{\"params\":{\"duration\":\"Block durtation of cycle\"}},\"setEventSend(bool)\":{\"params\":{\"eventSendSet\":\"Bool to set state variable to\"}},\"startCycleRollover()\":{\"details\":\"Sets rolloverStarted state boolean to true\"},\"unRegisterController(bytes32)\":{\"params\":{\"id\":\"Bytes32 controller id\"}},\"unRegisterPool(address)\":{\"params\":{\"pool\":\"Address of pool\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"completeRollover(string)\":{\"notice\":\"Completes cycle rollover, publishes rewards hash to ipfs\"},\"cycleRewardsHashes(uint256)\":{\"notice\":\"Gets reward hash by cycle index\"},\"executeMaintenance(((bytes32,bytes)[]))\":{\"notice\":\"Allows for controller commands to be executed midcycle\"},\"executeRollover(((address,uint256)[],(bytes32,bytes)[],address[],bool,string))\":{\"notice\":\"Allows for withdrawals and deposits for pools along with liq deployment\"},\"getControllers()\":{\"notice\":\"Gets ids of all controllers registered\"},\"getCurrentCycle()\":{\"notice\":\"Gets current starting block\"},\"getCurrentCycleIndex()\":{\"notice\":\"Gets current cycle index\"},\"getCycleDuration()\":{\"notice\":\"Gets current cycle duration\"},\"getPools()\":{\"notice\":\"Gets addresses of all pools registered\"},\"getRolloverStatus()\":{\"notice\":\"Gets cycle rollover status, true for rolling false for not\"},\"registerController(bytes32,address)\":{\"notice\":\"Registers controller\"},\"registerPool(address)\":{\"notice\":\"Registers pool\"},\"setCycleDuration(uint256)\":{\"notice\":\"Allows for owner to set cycle duration\"},\"setEventSend(bool)\":{\"notice\":\"Sets state variable that tells contract if it can send data to EventProxy\"},\"startCycleRollover()\":{\"notice\":\"Starts cycle rollover\"},\"unRegisterController(bytes32)\":{\"notice\":\"Unregisters controller\"},\"unRegisterPool(address)\":{\"notice\":\"Unregisters pool\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/ITokemakManager.sol\":\"IManager\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\"},\"optimizer\":{\"enabled\":true,\"runs\":800},\"remappings\":[]},\"sources\":{\"contracts/interfaces/ITokemakManager.sol\":{\"keccak256\":\"0x26773bb97741958e300548a3c3999a344f8b5d60a3fb2f33885a8c55ea2914c4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bcbe951826fb9c8492f47e89f3e0aaae4a12ab97a2c2850039615024db7ee1d1\",\"dweb:/ipfs/QmQf8F22L89EKgVNxRSYrtVQ1Epe7YYEUXi5GXuqG3qyxf\"]}},\"version\":1}"
+        }
+      }
+    },
+    "sources": {
+      "contracts/interfaces/ITokemakManager.sol": {
+        "ast": {
+          "absolutePath": "contracts/interfaces/ITokemakManager.sol",
+          "exportedSymbols": {
+            "IManager": [
+              206
+            ]
+          },
+          "id": 207,
+          "license": "MIT",
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "0.7",
+                ".5"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "33:22:0"
+            },
+            {
+              "id": 2,
+              "literals": [
+                "experimental",
+                "ABIEncoderV2"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "56:33:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "interface",
+              "fullyImplemented": false,
+              "id": 206,
+              "linearizedBaseContracts": [
+                206
+              ],
+              "name": "IManager",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "canonicalName": "IManager.ControllerTransferData",
+                  "id": 7,
+                  "members": [
+                    {
+                      "constant": false,
+                      "id": 4,
+                      "mutability": "mutable",
+                      "name": "controllerId",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 7,
+                      "src": "227:20:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 3,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "227:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 6,
+                      "mutability": "mutable",
+                      "name": "data",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 7,
+                      "src": "281:10:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_storage_ptr",
+                        "typeString": "bytes"
+                      },
+                      "typeName": {
+                        "id": 5,
+                        "name": "bytes",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "281:5:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_storage_ptr",
+                          "typeString": "bytes"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "name": "ControllerTransferData",
+                  "nodeType": "StructDefinition",
+                  "scope": 206,
+                  "src": "187:144:0",
+                  "visibility": "public"
+                },
+                {
+                  "canonicalName": "IManager.PoolTransferData",
+                  "id": 12,
+                  "members": [
+                    {
+                      "constant": false,
+                      "id": 9,
+                      "mutability": "mutable",
+                      "name": "pool",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 12,
+                      "src": "371:12:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 8,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "371:7:0",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 11,
+                      "mutability": "mutable",
+                      "name": "amount",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 12,
+                      "src": "411:14:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 10,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "411:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "name": "PoolTransferData",
+                  "nodeType": "StructDefinition",
+                  "scope": 206,
+                  "src": "337:117:0",
+                  "visibility": "public"
+                },
+                {
+                  "canonicalName": "IManager.MaintenanceExecution",
+                  "id": 16,
+                  "members": [
+                    {
+                      "constant": false,
+                      "id": 15,
+                      "mutability": "mutable",
+                      "name": "cycleSteps",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 16,
+                      "src": "498:35:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_ControllerTransferData_$7_storage_$dyn_storage_ptr",
+                        "typeString": "struct IManager.ControllerTransferData[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 13,
+                          "name": "ControllerTransferData",
+                          "nodeType": "UserDefinedTypeName",
+                          "referencedDeclaration": 7,
+                          "src": "498:22:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ControllerTransferData_$7_storage_ptr",
+                            "typeString": "struct IManager.ControllerTransferData"
+                          }
+                        },
+                        "id": 14,
+                        "nodeType": "ArrayTypeName",
+                        "src": "498:24:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_ControllerTransferData_$7_storage_$dyn_storage_ptr",
+                          "typeString": "struct IManager.ControllerTransferData[]"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "name": "MaintenanceExecution",
+                  "nodeType": "StructDefinition",
+                  "scope": 206,
+                  "src": "460:80:0",
+                  "visibility": "public"
+                },
+                {
+                  "canonicalName": "IManager.RolloverExecution",
+                  "id": 30,
+                  "members": [
+                    {
+                      "constant": false,
+                      "id": 19,
+                      "mutability": "mutable",
+                      "name": "poolData",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 30,
+                      "src": "581:27:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_PoolTransferData_$12_storage_$dyn_storage_ptr",
+                        "typeString": "struct IManager.PoolTransferData[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 17,
+                          "name": "PoolTransferData",
+                          "nodeType": "UserDefinedTypeName",
+                          "referencedDeclaration": 12,
+                          "src": "581:16:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_PoolTransferData_$12_storage_ptr",
+                            "typeString": "struct IManager.PoolTransferData"
+                          }
+                        },
+                        "id": 18,
+                        "nodeType": "ArrayTypeName",
+                        "src": "581:18:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_PoolTransferData_$12_storage_$dyn_storage_ptr",
+                          "typeString": "struct IManager.PoolTransferData[]"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 22,
+                      "mutability": "mutable",
+                      "name": "cycleSteps",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 30,
+                      "src": "618:35:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_ControllerTransferData_$7_storage_$dyn_storage_ptr",
+                        "typeString": "struct IManager.ControllerTransferData[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 20,
+                          "name": "ControllerTransferData",
+                          "nodeType": "UserDefinedTypeName",
+                          "referencedDeclaration": 7,
+                          "src": "618:22:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ControllerTransferData_$7_storage_ptr",
+                            "typeString": "struct IManager.ControllerTransferData"
+                          }
+                        },
+                        "id": 21,
+                        "nodeType": "ArrayTypeName",
+                        "src": "618:24:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_ControllerTransferData_$7_storage_$dyn_storage_ptr",
+                          "typeString": "struct IManager.ControllerTransferData[]"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 25,
+                      "mutability": "mutable",
+                      "name": "poolsForWithdraw",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 30,
+                      "src": "663:26:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                        "typeString": "address[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 23,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "663:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "id": 24,
+                        "nodeType": "ArrayTypeName",
+                        "src": "663:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                          "typeString": "address[]"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 27,
+                      "mutability": "mutable",
+                      "name": "complete",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 30,
+                      "src": "746:13:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "typeName": {
+                        "id": 26,
+                        "name": "bool",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "746:4:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 29,
+                      "mutability": "mutable",
+                      "name": "rewardsIpfsHash",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 30,
+                      "src": "809:22:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      },
+                      "typeName": {
+                        "id": 28,
+                        "name": "string",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "809:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage_ptr",
+                          "typeString": "string"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "name": "RolloverExecution",
+                  "nodeType": "StructDefinition",
+                  "scope": 206,
+                  "src": "546:292:0",
+                  "visibility": "public"
+                },
+                {
+                  "anonymous": false,
+                  "id": 36,
+                  "name": "ControllerRegistered",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 35,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 32,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "id",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 36,
+                        "src": "871:10:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "typeName": {
+                          "id": 31,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "871:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 34,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "controller",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 36,
+                        "src": "883:18:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 33,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "883:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "870:32:0"
+                  },
+                  "src": "844:59:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 42,
+                  "name": "ControllerUnregistered",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 41,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 38,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "id",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 42,
+                        "src": "937:10:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "typeName": {
+                          "id": 37,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "937:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 40,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "controller",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 42,
+                        "src": "949:18:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 39,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "949:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "936:32:0"
+                  },
+                  "src": "908:61:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 46,
+                  "name": "PoolRegistered",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 45,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 44,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "pool",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 46,
+                        "src": "995:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 43,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "995:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "994:14:0"
+                  },
+                  "src": "974:35:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 50,
+                  "name": "PoolUnregistered",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 49,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 48,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "pool",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 50,
+                        "src": "1037:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 47,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1037:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1036:14:0"
+                  },
+                  "src": "1014:37:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 54,
+                  "name": "CycleDurationSet",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 53,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 52,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "duration",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 54,
+                        "src": "1079:16:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 51,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1079:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1078:18:0"
+                  },
+                  "src": "1056:41:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 60,
+                  "name": "LiquidityMovedToManager",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 59,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 56,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "pool",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 60,
+                        "src": "1132:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 55,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1132:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 58,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "amount",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 60,
+                        "src": "1146:14:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 57,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1146:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1131:30:0"
+                  },
+                  "src": "1102:60:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 68,
+                  "name": "DeploymentStepExecuted",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 67,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 62,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "controller",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 68,
+                        "src": "1196:18:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "typeName": {
+                          "id": 61,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1196:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 64,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "adapaterAddress",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 68,
+                        "src": "1216:23:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 63,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1216:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 66,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "data",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 68,
+                        "src": "1241:10:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 65,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1241:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1195:57:0"
+                  },
+                  "src": "1167:86:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 74,
+                  "name": "LiquidityMovedToPool",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 73,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 70,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "pool",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 74,
+                        "src": "1285:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 69,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1285:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 72,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "amount",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 74,
+                        "src": "1299:14:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 71,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1299:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1284:30:0"
+                  },
+                  "src": "1258:57:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 78,
+                  "name": "CycleRolloverStarted",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 77,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 76,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "blockNumber",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 78,
+                        "src": "1347:19:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 75,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1347:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1346:21:0"
+                  },
+                  "src": "1320:48:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 82,
+                  "name": "CycleRolloverComplete",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 81,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 80,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "blockNumber",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 82,
+                        "src": "1401:19:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 79,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1401:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1400:21:0"
+                  },
+                  "src": "1373:49:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 88,
+                  "name": "DestinationsSet",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 87,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 84,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "destinationOnL1",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 88,
+                        "src": "1449:23:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 83,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1449:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 86,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "destinationOnL2",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 88,
+                        "src": "1474:23:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 85,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1474:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1448:50:0"
+                  },
+                  "src": "1427:72:0"
+                },
+                {
+                  "anonymous": false,
+                  "id": 92,
+                  "name": "EventSendSet",
+                  "nodeType": "EventDefinition",
+                  "parameters": {
+                    "id": 91,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 90,
+                        "indexed": false,
+                        "mutability": "mutable",
+                        "name": "eventSendSet",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 92,
+                        "src": "1523:17:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "typeName": {
+                          "id": 89,
+                          "name": "bool",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1523:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1522:19:0"
+                  },
+                  "src": "1504:38:0"
+                },
+                {
+                  "documentation": {
+                    "id": 93,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "1548:123:0",
+                    "text": "@notice Registers controller\n @param id Bytes32 id of controller\n @param controller Address of controller"
+                  },
+                  "functionSelector": "427db53e",
+                  "id": 100,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "registerController",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 98,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 95,
+                        "mutability": "mutable",
+                        "name": "id",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 100,
+                        "src": "1704:10:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "typeName": {
+                          "id": 94,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1704:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 97,
+                        "mutability": "mutable",
+                        "name": "controller",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 100,
+                        "src": "1716:18:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 96,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1716:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1703:32:0"
+                  },
+                  "returnParameters": {
+                    "id": 99,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "1744:0:0"
+                  },
+                  "scope": 206,
+                  "src": "1676:69:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 101,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "1751:62:0",
+                    "text": "@notice Registers pool\n @param pool Address of pool"
+                  },
+                  "functionSelector": "abd90846",
+                  "id": 106,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "registerPool",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 104,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 103,
+                        "mutability": "mutable",
+                        "name": "pool",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 106,
+                        "src": "1840:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 102,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1840:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1839:14:0"
+                  },
+                  "returnParameters": {
+                    "id": 105,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "1862:0:0"
+                  },
+                  "scope": 206,
+                  "src": "1818:45:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 107,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "1869:74:0",
+                    "text": "@notice Unregisters controller\n @param id Bytes32 controller id"
+                  },
+                  "functionSelector": "60a50b70",
+                  "id": 112,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "unRegisterController",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 110,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 109,
+                        "mutability": "mutable",
+                        "name": "id",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 112,
+                        "src": "1978:10:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "typeName": {
+                          "id": 108,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1978:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1977:12:0"
+                  },
+                  "returnParameters": {
+                    "id": 111,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "1998:0:0"
+                  },
+                  "scope": 206,
+                  "src": "1948:51:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 113,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2005:64:0",
+                    "text": "@notice Unregisters pool\n @param pool Address of pool"
+                  },
+                  "functionSelector": "76b077fc",
+                  "id": 118,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "unRegisterPool",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 116,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 115,
+                        "mutability": "mutable",
+                        "name": "pool",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 118,
+                        "src": "2098:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 114,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2098:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2097:14:0"
+                  },
+                  "returnParameters": {
+                    "id": 117,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "2120:0:0"
+                  },
+                  "scope": 206,
+                  "src": "2074:47:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 119,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2127:95:0",
+                    "text": "@notice Gets addresses of all pools registered\n@return Memory array of pool addresses"
+                  },
+                  "functionSelector": "673a2a1f",
+                  "id": 125,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "getPools",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 120,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "2244:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 124,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 123,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 125,
+                        "src": "2270:16:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[]"
+                        },
+                        "typeName": {
+                          "baseType": {
+                            "id": 121,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "2270:7:0",
+                            "stateMutability": "nonpayable",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "id": 122,
+                          "nodeType": "ArrayTypeName",
+                          "src": "2270:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                            "typeString": "address[]"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2269:18:0"
+                  },
+                  "scope": 206,
+                  "src": "2227:61:0",
+                  "stateMutability": "view",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 126,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2294:103:0",
+                    "text": "@notice Gets ids of all controllers registered\n@return Memory array of Bytes32 controller ids"
+                  },
+                  "functionSelector": "b4e8a6c4",
+                  "id": 132,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "getControllers",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 127,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "2425:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 131,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 130,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 132,
+                        "src": "2451:16:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                          "typeString": "bytes32[]"
+                        },
+                        "typeName": {
+                          "baseType": {
+                            "id": 128,
+                            "name": "bytes32",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "2451:7:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "id": 129,
+                          "nodeType": "ArrayTypeName",
+                          "src": "2451:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                            "typeString": "bytes32[]"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2450:18:0"
+                  },
+                  "scope": 206,
+                  "src": "2402:67:0",
+                  "stateMutability": "view",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 133,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2475:97:0",
+                    "text": "@notice Allows for owner to set cycle duration\n@param duration Block durtation of cycle"
+                  },
+                  "functionSelector": "8cc23934",
+                  "id": 138,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "setCycleDuration",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 136,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 135,
+                        "mutability": "mutable",
+                        "name": "duration",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 138,
+                        "src": "2603:16:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 134,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2603:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2602:18:0"
+                  },
+                  "returnParameters": {
+                    "id": 137,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "2629:0:0"
+                  },
+                  "scope": 206,
+                  "src": "2577:53:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 139,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2636:87:0",
+                    "text": "@notice Starts cycle rollover\n@dev Sets rolloverStarted state boolean to true"
+                  },
+                  "functionSelector": "befc42d4",
+                  "id": 142,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "startCycleRollover",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 140,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "2755:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 141,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "2766:0:0"
+                  },
+                  "scope": 206,
+                  "src": "2728:39:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 143,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2773:127:0",
+                    "text": "@notice Allows for controller commands to be executed midcycle\n@param params Contains data for controllers and params"
+                  },
+                  "functionSelector": "5e4b836b",
+                  "id": 148,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "executeMaintenance",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 146,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 145,
+                        "mutability": "mutable",
+                        "name": "params",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 148,
+                        "src": "2933:36:0",
+                        "stateVariable": false,
+                        "storageLocation": "calldata",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_MaintenanceExecution_$16_calldata_ptr",
+                          "typeString": "struct IManager.MaintenanceExecution"
+                        },
+                        "typeName": {
+                          "id": 144,
+                          "name": "MaintenanceExecution",
+                          "nodeType": "UserDefinedTypeName",
+                          "referencedDeclaration": 16,
+                          "src": "2933:20:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_MaintenanceExecution_$16_storage_ptr",
+                            "typeString": "struct IManager.MaintenanceExecution"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2932:38:0"
+                  },
+                  "returnParameters": {
+                    "id": 147,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "2979:0:0"
+                  },
+                  "scope": 206,
+                  "src": "2905:75:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 149,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2986:169:0",
+                    "text": "@notice Allows for withdrawals and deposits for pools along with liq deployment\n@param params Contains various data for executing against pools and controllers"
+                  },
+                  "functionSelector": "ec9fb8da",
+                  "id": 154,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "executeRollover",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 152,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 151,
+                        "mutability": "mutable",
+                        "name": "params",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 154,
+                        "src": "3185:33:0",
+                        "stateVariable": false,
+                        "storageLocation": "calldata",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_RolloverExecution_$30_calldata_ptr",
+                          "typeString": "struct IManager.RolloverExecution"
+                        },
+                        "typeName": {
+                          "id": 150,
+                          "name": "RolloverExecution",
+                          "nodeType": "UserDefinedTypeName",
+                          "referencedDeclaration": 30,
+                          "src": "3185:17:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_RolloverExecution_$30_storage_ptr",
+                            "typeString": "struct IManager.RolloverExecution"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "3184:35:0"
+                  },
+                  "returnParameters": {
+                    "id": 153,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "3228:0:0"
+                  },
+                  "scope": 206,
+                  "src": "3160:69:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 155,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "3235:127:0",
+                    "text": "@notice Completes cycle rollover, publishes rewards hash to ipfs\n@param rewardsIpfsHash rewards hash uploaded to ipfs"
+                  },
+                  "functionSelector": "779e4a02",
+                  "id": 160,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "completeRollover",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 158,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 157,
+                        "mutability": "mutable",
+                        "name": "rewardsIpfsHash",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 160,
+                        "src": "3393:31:0",
+                        "stateVariable": false,
+                        "storageLocation": "calldata",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_calldata_ptr",
+                          "typeString": "string"
+                        },
+                        "typeName": {
+                          "id": 156,
+                          "name": "string",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3393:6:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_storage_ptr",
+                            "typeString": "string"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "3392:33:0"
+                  },
+                  "returnParameters": {
+                    "id": 159,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "3434:0:0"
+                  },
+                  "scope": 206,
+                  "src": "3367:68:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 161,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "3441:133:0",
+                    "text": "@notice Gets reward hash by cycle index\n@param index Cycle index to retrieve rewards hash\n@return String memory hash"
+                  },
+                  "functionSelector": "6451e45a",
+                  "id": 168,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "cycleRewardsHashes",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 164,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 163,
+                        "mutability": "mutable",
+                        "name": "index",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 168,
+                        "src": "3607:13:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 162,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3607:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "3606:15:0"
+                  },
+                  "returnParameters": {
+                    "id": 167,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 166,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 168,
+                        "src": "3645:13:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string"
+                        },
+                        "typeName": {
+                          "id": 165,
+                          "name": "string",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3645:6:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_storage_ptr",
+                            "typeString": "string"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "3644:15:0"
+                  },
+                  "scope": 206,
+                  "src": "3579:81:0",
+                  "stateMutability": "view",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 169,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "3666:79:0",
+                    "text": "@notice Gets current starting block\n@return uint256 with block number"
+                  },
+                  "functionSelector": "be26ed7f",
+                  "id": 174,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "getCurrentCycle",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 170,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "3774:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 173,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 172,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 174,
+                        "src": "3800:7:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 171,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3800:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "3799:9:0"
+                  },
+                  "scope": 206,
+                  "src": "3750:59:0",
+                  "stateMutability": "view",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 175,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "3815:79:0",
+                    "text": "@notice Gets current cycle index\n@return uint256 current cycle number"
+                  },
+                  "functionSelector": "85790945",
+                  "id": 180,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "getCurrentCycleIndex",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 176,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "3928:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 179,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 178,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 180,
+                        "src": "3954:7:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 177,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3954:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "3953:9:0"
+                  },
+                  "scope": 206,
+                  "src": "3899:64:0",
+                  "stateMutability": "view",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 181,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "3969:88:0",
+                    "text": "@notice Gets current cycle duration\n@return uint256 in block of cycle duration"
+                  },
+                  "functionSelector": "bd5da9ac",
+                  "id": 186,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "getCycleDuration",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 182,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "4087:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 185,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 184,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 186,
+                        "src": "4113:7:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 183,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "4113:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "4112:9:0"
+                  },
+                  "scope": 206,
+                  "src": "4062:60:0",
+                  "stateMutability": "view",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 187,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "4128:139:0",
+                    "text": "@notice Gets cycle rollover status, true for rolling false for not\n@return Bool representing whether cycle is rolling over or not"
+                  },
+                  "functionSelector": "f99476c9",
+                  "id": 192,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "getRolloverStatus",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 188,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "4298:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 191,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 190,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 192,
+                        "src": "4324:4:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "typeName": {
+                          "id": 189,
+                          "name": "bool",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "4324:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "4323:6:0"
+                  },
+                  "scope": 206,
+                  "src": "4272:58:0",
+                  "stateMutability": "view",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "functionSelector": "7d6eae72",
+                  "id": 199,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "setDestinations",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 197,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 194,
+                        "mutability": "mutable",
+                        "name": "destinationOnL1",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 199,
+                        "src": "4361:23:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 193,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "4361:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 196,
+                        "mutability": "mutable",
+                        "name": "destinationOnL2",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 199,
+                        "src": "4386:23:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 195,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "4386:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "4360:50:0"
+                  },
+                  "returnParameters": {
+                    "id": 198,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "4419:0:0"
+                  },
+                  "scope": 206,
+                  "src": "4336:84:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "documentation": {
+                    "id": 200,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "4426:143:0",
+                    "text": "@notice Sets state variable that tells contract if it can send data to EventProxy\n @param eventSendSet Bool to set state variable to"
+                  },
+                  "functionSelector": "e912b5ee",
+                  "id": 205,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "setEventSend",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 203,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 202,
+                        "mutability": "mutable",
+                        "name": "eventSendSet",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 205,
+                        "src": "4596:17:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "typeName": {
+                          "id": 201,
+                          "name": "bool",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "4596:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "4595:19:0"
+                  },
+                  "returnParameters": {
+                    "id": 204,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "4623:0:0"
+                  },
+                  "scope": 206,
+                  "src": "4574:50:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 207,
+              "src": "91:4535:0"
+            }
+          ],
+          "src": "33:4594:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}
